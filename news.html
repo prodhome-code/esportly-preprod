@@ -1,16 +1,56 @@
-<!DOCTYPE html>
-<html lang="fr"><head>
+<html lang="fr"><head><style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  #preprodbar a:hover{color:#FFC53D}body{padding-bottom:46px}</style>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>eSportly — News esport</title>
-<script src="assets/b663652741bf.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<style>/* devanagari */
+<style>x-dc{display:none!important}</style>
+<style data-dc-tpl="1">/* devanagari */
 @font-face {
   font-family: 'Rajdhani';
   font-style: normal;
@@ -91,8 +131,7 @@
   src: url("assets/d5448938a162.woff2") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-</style>
-<style>
+</style><style data-dc-tpl="2">
 body{margin:0;background:#FFFFFF}
 a{color:#0E1424;text-decoration:none}a:hover{color:#7A5600}
 .disp{font-family:'Rajdhani','Arial Narrow',sans-serif;font-weight:700;line-height:1}
@@ -149,417 +188,12 @@ a{color:#0E1424;text-decoration:none}a:hover{color:#7A5600}
 .prose h2{font-family:'Rajdhani','Arial Narrow',sans-serif;font-weight:700;font-size:30px;line-height:1.1;margin:8px 0 10px;color:#0E1424}
 .gtile{text-decoration:none;box-sizing:border-box}
 @media (prefers-reduced-motion: reduce){.ncard,.nimg-logo{transition:none}.ncard:hover{transform:none}}
-</style>
-</helmet>
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif; color: #0E1424; background: #FFFFFF; min-height: 100vh">
+</style></head>
+<body>
+<div id="dc-root"><div class="sc-host" data-sc-name="news"><div data-dc-tpl="3" style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, system-ui, &quot;Segoe UI&quot;, Roboto, sans-serif; color: rgb(14, 20, 36); background: rgb(255, 255, 255); min-height: 100vh;"><header data-dc-tpl="4" style="background: rgb(10, 14, 26); color: rgb(255, 255, 255);"><div data-dc-tpl="5" class="wrap" style="display: flex; align-items: center; gap: 18px; min-height: 68px; flex-wrap: wrap;"><a data-dc-tpl="6" href="LiveHubMenu.dc.html" aria-label="eSportly, accueil" style="display: flex; align-items: center; gap: 10px; color: rgb(255, 255, 255);"><svg data-dc-tpl="7" width="36" height="36" viewBox="0 0 512 512" aria-hidden="true"><path data-dc-tpl="8" d="M256 22 L462 82 L462 250 C462 378 372 450 256 494 C140 450 50 378 50 250 L50 82 Z" fill="#0A0E1A" stroke="#FFC53D" stroke-width="22"></path><path data-dc-tpl="9" d="M132 280 L244 280 L244 238 L216 210 L156 210 L128 238 L128 332 L156 360 L244 360" fill="none" stroke="#FFC53D" stroke-width="40"></path><path data-dc-tpl="10" d="M380 160 L300 160 L268 192 L268 232 L300 260 L348 260 L380 292 L380 330 L348 362 L262 362" fill="none" stroke="#F4F6FF" stroke-width="42"></path><circle data-dc-tpl="11" cx="420" cy="98" r="44" fill="#FFC53D" stroke="#0A0E1A" stroke-width="14"></circle><path data-dc-tpl="12" d="M420 76 L420 104 M420 118 L420 122" stroke="#0A0E1A" stroke-width="14"></path></svg><span data-dc-tpl="13" class="disp" style="font-size: 28px;">eSportly</span></a><nav data-dc-tpl="14" aria-label="Menu principal" style="margin-left: auto; display: flex; align-items: center; flex-wrap: wrap;"><a data-dc-tpl="15" href="LiveHubMenu.dc.html" aria-label="Live : 6 matchs en direct" style="font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; margin-right: 6px; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0px 6px 0px 12px; border-radius: 999px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 18px; font-weight: 700; letter-spacing: 0.04em;"><span data-dc-tpl="16" class="dot" style="background: rgb(255, 255, 255); box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 0px 3px;"></span>LIVE
+<span data-dc-tpl="17" class="num" style="min-width: 26px; height: 26px; padding: 0px 7px; box-sizing: border-box; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(212, 31, 52); display: inline-flex; align-items: center; justify-content: center; font-size: 16px;">6</span></a><a data-dc-tpl="18" href="Equipes.dc.html" class="nav-btn">Équipes</a><a data-dc-tpl="19" href="#top" class="nav-btn">Matchs</a><a data-dc-tpl="20" href="Tournois.dc.html" class="nav-btn">Tournois</a><a data-dc-tpl="21" href="News.dc.html" class="nav-btn" aria-current="page" style="color: rgb(255, 197, 61); box-shadow: rgb(255, 197, 61) 0px -3px 0px inset;">News</a></nav><div data-dc-tpl="22" style="display: flex; align-items: center; gap: 14px;"><a data-dc-tpl="23" href="#top" class="disp" style="display: inline-flex; align-items: center; min-height: 40px; background: rgb(255, 197, 61); color: rgb(26, 19, 0); font-size: 18px; padding: 0px 14px; border-radius: 999px;">eSportly+</a><div data-dc-tpl="24" style="position: relative;"><button data-dc-tpl="25" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Langue du site : Français" style="font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgb(42, 50, 71); background: rgb(20, 26, 43); color: rgb(255, 255, 255); font-size: 13px; font-weight: 800;"><svg data-dc-tpl="26" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="2.2" aria-hidden="true"><circle data-dc-tpl="27" cx="12" cy="12" r="9"></circle><path data-dc-tpl="28" d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg><span class="sc-interp">FR</span>
+<svg data-dc-tpl="29" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path data-dc-tpl="30" d="m6 9 6 6 6-6"></path></svg></button></div><div data-dc-tpl="40" class="num" style="position: relative; display: flex; flex-direction: column; align-items: flex-end; border-left: 1px solid rgb(42, 50, 71); padding-left: 14px; min-width: 190px;"><span data-dc-tpl="41" class="disp" style="font-size: 28px; color: rgb(255, 255, 255);"><span class="sc-interp">18:29:28</span></span><span data-dc-tpl="42" style="font-size: 12px; font-weight: 600; color: rgb(169, 177, 194); text-transform: capitalize;"><span class="sc-interp">lundi 16 novembre 2026</span></span><label data-dc-tpl="43" for="tz" style="position: absolute; left: -9999px;"><span class="sc-interp">Fuseau horaire des horaires affichés</span></label></div></div></div></header><section data-dc-tpl="44" aria-label="Tournois par jeu" style="background: rgb(10, 14, 26); border-top: 1px solid rgba(255, 255, 255, 0.08); box-shadow: rgb(255, 197, 61) 0px -1px 0px inset;"><div data-dc-tpl="45" class="wrap" style="padding-top: 12px; padding-bottom: 12px; display: flex; flex-direction: column; gap: 10px;"><div data-dc-tpl="46" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 32px;"><span data-dc-tpl="47" style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: rgb(169, 177, 194);">FILTRER LES NEWS PAR JEU</span></div><div data-dc-tpl="52" class="g-strip"><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News League of Legends" aria-label="News League of Legends" style="--gc: #0E3B4F;"><img data-dc-tpl="55" src="/_blob/b921740434ebb55c0a8a74b6a13ec74c" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">LoL</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Counter-Strike 2" aria-label="News Counter-Strike 2" style="--gc: #4A3A12;"><img data-dc-tpl="55" src="/_blob/280199a9397bbe1da37b23e0909da989" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">CS2</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Valorant" aria-label="News Valorant" style="--gc: #6A1A28;"><img data-dc-tpl="55" src="/_blob/2ec5dff2161b6aa5bd2c130e765d49d0" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Valo</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Rocket League" aria-label="News Rocket League" style="--gc: #123A6B;"><img data-dc-tpl="55" src="/_blob/1044e40ea678dc6e28bf11d916e7ec1b" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">RL</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Dota 2" aria-label="News Dota 2" style="--gc: #5A1A12;"><img data-dc-tpl="55" src="/_blob/c3343751dff3b20aaf06fb0757307268" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Dota 2</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Overwatch 2" aria-label="News Overwatch 2" style="--gc: #6A3C10;"><img data-dc-tpl="55" src="/_blob/b26ab30daad05e2098f9794e8e9a6664" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">OW2</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Rainbow Six Siege" aria-label="News Rainbow Six Siege" style="--gc: #26303F;"><img data-dc-tpl="55" src="/_blob/e44c9f69a78a1985829457cfd0e6d717" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">R6</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Call of Duty" aria-label="News Call of Duty" style="--gc: #23331F;"><img data-dc-tpl="55" src="/_blob/c1a516cd9c745818303e32f6bce04863" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">CoD</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Mobile Legends: Bang Bang" aria-label="News Mobile Legends: Bang Bang" style="--gc: #33246A;"><img data-dc-tpl="55" src="/_blob/447cbce9015c8a95430695dd66fb93ee" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">MLBB</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News Honor of Kings" aria-label="News Honor of Kings" style="--gc: #5A340C;"><img data-dc-tpl="55" src="/_blob/ab1b1f7c1d8c68c2be6302f0c80d2f7e" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">HoK</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News EA Sports FC" aria-label="News EA Sports FC" style="--gc: #0F4434;"><img data-dc-tpl="55" src="/_blob/46e86e11dc804209eb64b093279708da" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">EA FC</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News StarCraft II" aria-label="News StarCraft II" style="--gc: #132C55;"><img data-dc-tpl="55" src="/_blob/f08a140793f5a08d8e5e6ffc50a21678" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">SC2</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News StarCraft: Brood War" aria-label="News StarCraft: Brood War" style="--gc: #3A342C;"><img data-dc-tpl="55" src="/_blob/c11894b9630ad84a0d8bab39611447de" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">BW</span></span></button><button data-dc-tpl="54" type="button" class="gtile" aria-current="false" title="News LoL: Wild Rift" aria-label="News LoL: Wild Rift" style="--gc: #124A50;"><img data-dc-tpl="55" src="/_blob/44e8e81d3035233b506bc9751c1bc1a2" alt="" class="gtile-logo"><span data-dc-tpl="56" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Wild Rift</span></span></button></div></div></section><main data-dc-tpl="57" id="top" class="wrap" style="padding-top: 22px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 28px;"><div data-dc-tpl="58" style="display: flex; flex-direction: column; gap: 10px;"><nav data-dc-tpl="59" aria-label="Fil d'Ariane" style="font-size: 13px; font-weight: 600; color: rgb(72, 80, 96); display: flex; gap: 8px; flex-wrap: wrap;"><a data-dc-tpl="60" href="LiveHubMenu.dc.html" style="color: rgb(72, 80, 96);">Accueil</a><span data-dc-tpl="61" aria-hidden="true">›</span><a data-dc-tpl="62" href="#top" style="color: rgb(72, 80, 96);">News</a></nav><div data-dc-tpl="66" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap;"><div data-dc-tpl="67" style="display: flex; flex-direction: column; gap: 8px; max-width: 760px;"><h1 data-dc-tpl="68" class="disp" style="margin: 0px; font-size: 52px;"><span class="sc-interp">News esport</span></h1><p data-dc-tpl="69" style="margin: 0px; font-size: 16px; line-height: 1.5; color: rgb(58, 66, 80);">Résultats, transferts, annonces et tournois : toute l'actu esport, mise à jour en continu.</p></div><span data-dc-tpl="70" class="pill" style="background: rgb(255, 244, 214); color: rgb(122, 86, 0);">Contenu fictif pour la maquette</span></div></div><section data-dc-tpl="72" aria-label="À la une" class="g-une"><a data-dc-tpl="73" href="News-Article.dc.html" class="ncard ncard-big"><span data-dc-tpl="74" class="nimg" style="background: linear-gradient(150deg, rgb(74, 58, 18) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="75" src="/_blob/280199a9397bbe1da37b23e0909da989" alt="" class="nimg-logo" style="max-height: 70px;"><span data-dc-tpl="76" class="pill" style="position: absolute; top: 16px; left: 16px; background: rgb(255, 197, 61); color: rgb(26, 19, 0);">À LA UNE</span></span><span data-dc-tpl="77" style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px;"><span data-dc-tpl="78" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Counter-Strike 2 · Résultats</span></span><span data-dc-tpl="79" class="disp" style="font-size: 36px; line-height: 1.05;"><span class="sc-interp">PGL Masters : MOUZ s’impose au bout du suspense face à Team Vitality</span></span><span data-dc-tpl="80" style="font-size: 16px; line-height: 1.5; color: rgb(58, 66, 80);"><span class="sc-interp">Menés deux maps à une, les Européens ont renversé la finale pour décrocher le titre en cinq maps.</span></span><span data-dc-tpl="81" style="font-size: 13px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 2 h</span> · <span class="sc-interp">4 min</span> de lecture</span></span></a><div data-dc-tpl="82" style="display: flex; flex-direction: column; gap: 14px;"><a data-dc-tpl="84" href="News-Article.dc.html" class="ncard" style="flex: 1 1 0%;"><span data-dc-tpl="85" class="nimg" style="background: linear-gradient(150deg, rgb(14, 59, 79) 0%, rgb(10, 14, 26) 85%); aspect-ratio: auto; height: 150px;"><img data-dc-tpl="86" src="/_blob/b921740434ebb55c0a8a74b6a13ec74c" alt="" class="nimg-logo"></span><span data-dc-tpl="87" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px;"><span data-dc-tpl="88" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">League of Legends · Résultats</span></span><span data-dc-tpl="89" class="disp" style="font-size: 22px; line-height: 1.1;"><span class="sc-interp">LEC : Karmine Corp arrache sa place en finale</span></span><span data-dc-tpl="90" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 4 h</span></span></span></a><a data-dc-tpl="84" href="News-Article.dc.html" class="ncard" style="flex: 1 1 0%;"><span data-dc-tpl="85" class="nimg" style="background: linear-gradient(150deg, rgb(106, 26, 40) 0%, rgb(10, 14, 26) 85%); aspect-ratio: auto; height: 150px;"><img data-dc-tpl="86" src="/_blob/2ec5dff2161b6aa5bd2c130e765d49d0" alt="" class="nimg-logo"></span><span data-dc-tpl="87" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px;"><span data-dc-tpl="88" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Valorant · Résultats</span></span><span data-dc-tpl="89" class="disp" style="font-size: 22px; line-height: 1.1;"><span class="sc-interp">VCT EMEA : Heretics sortent Fnatic en deux maps</span></span><span data-dc-tpl="90" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 6 h</span></span></span></a></div></section><div data-dc-tpl="91" class="g-news"><section data-dc-tpl="92" aria-labelledby="all-t" style="display: flex; flex-direction: column; gap: 14px; min-width: 0px;"><div data-dc-tpl="93" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;"><h2 data-dc-tpl="94" id="all-t" class="disp" style="margin: 0px; font-size: 30px;">Toutes les news</h2><div data-dc-tpl="95" role="group" aria-label="Catégories" style="display: flex; gap: 4px; flex-wrap: wrap; background: rgb(246, 247, 251); border: 1px solid rgb(213, 218, 230); border-radius: 999px; padding: 4px;"><button data-dc-tpl="97" type="button" class="tab" aria-pressed="true" style="background: rgb(10, 14, 26); color: rgb(255, 255, 255);"><span class="sc-interp">Tout</span></button><button data-dc-tpl="97" type="button" class="tab" aria-pressed="false" style="background: transparent; color: rgb(58, 66, 80);"><span class="sc-interp">Résultats</span></button><button data-dc-tpl="97" type="button" class="tab" aria-pressed="false" style="background: transparent; color: rgb(58, 66, 80);"><span class="sc-interp">Transferts</span></button><button data-dc-tpl="97" type="button" class="tab" aria-pressed="false" style="background: transparent; color: rgb(58, 66, 80);"><span class="sc-interp">Annonces</span></button><button data-dc-tpl="97" type="button" class="tab" aria-pressed="false" style="background: transparent; color: rgb(58, 66, 80);"><span class="sc-interp">Tournois</span></button></div></div><div data-dc-tpl="98" class="ngrid"><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(14, 59, 79) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/b921740434ebb55c0a8a74b6a13ec74c" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">League of Legends · Transferts</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">Team Vitality annonce un nouveau coach pour son équipe LoL</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Le club français remanie son staff avant la prochaine saison.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 8 h</span> · <span class="sc-interp">2 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(18, 58, 107) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/1044e40ea678dc6e28bf11d916e7ec1b" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Rocket League · Résultats</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">RLCS : Gentle Mates créent la surprise en quart</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Outsiders du tableau, les M8 éliminent l’un des favoris au game 7.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">hier</span> · <span class="sc-interp">3 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(74, 58, 18) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/280199a9397bbe1da37b23e0909da989" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Counter-Strike 2 · Tournois</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">Major CS2 : le programme complet des playoffs</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Horaires, affiches et format : tout ce qu’il faut savoir avant les quarts.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">hier</span> · <span class="sc-interp">5 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(90, 26, 18) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/c3343751dff3b20aaf06fb0757307268" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Dota 2 · Résultats</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">DreamLeague : Team Liquid et Xtreme Gaming dos à dos</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Une série serrée qui laisse le groupe totalement ouvert.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">hier</span> · <span class="sc-interp">2 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(106, 60, 16) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/b26ab30daad05e2098f9794e8e9a6664" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Overwatch 2 · Annonces</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">OWCS World Finals : rendez-vous fin novembre</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Les huit meilleures équipes du monde s’affronteront sur trois jours.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 2 j</span> · <span class="sc-interp">2 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(38, 48, 63) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/e44c9f69a78a1985829457cfd0e6d717" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Rainbow Six Siege · Tournois</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">Six Invitational : le format dévoilé</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">20 équipes, une phase de groupes et un tableau final à double élimination.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 2 j</span> · <span class="sc-interp">3 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(106, 26, 40) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/2ec5dff2161b6aa5bd2c130e765d49d0" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Valorant · Annonces</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">Valorant : ce que change le nouveau patch pour la scène pro</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Agents, cartes et économie : les ajustements qui vont peser en compétition.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 3 j</span> · <span class="sc-interp">4 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(51, 36, 106) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/447cbce9015c8a95430695dd66fb93ee" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Mobile Legends: Bang Bang · Tournois</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">Mobile Legends : les qualifications européennes commencent</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Seize équipes en lice pour deux places au championnat du monde.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 3 j</span> · <span class="sc-interp">2 min de lecture</span></span></span></a><a data-dc-tpl="100" href="News-Article.dc.html" class="ncard"><span data-dc-tpl="101" class="nimg" style="background: linear-gradient(150deg, rgb(74, 58, 18) 0%, rgb(10, 14, 26) 85%);"><img data-dc-tpl="102" src="/_blob/280199a9397bbe1da37b23e0909da989" alt="" class="nimg-logo"></span><span data-dc-tpl="103" style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0%;"><span data-dc-tpl="104" style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: rgb(122, 86, 0); text-transform: uppercase;"><span class="sc-interp">Counter-Strike 2 · Transferts</span></span><span data-dc-tpl="105" class="disp" style="font-size: 21px; line-height: 1.1;"><span class="sc-interp">MOUZ prolonge son effectif jusqu’en 2028</span></span><span data-dc-tpl="106" style="font-size: 14px; line-height: 1.45; color: rgb(58, 66, 80);"><span class="sc-interp">Le club allemand mise sur la stabilité après sa saison réussie.</span></span><span data-dc-tpl="107" style="margin-top: auto; font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">il y a 4 j</span> · <span class="sc-interp">2 min de lecture</span></span></span></a></div><button data-dc-tpl="110" type="button" class="tab" style="align-self: center; background: rgb(10, 14, 26); color: rgb(255, 255, 255); padding: 0px 26px;">Voir plus de news</button></section><aside data-dc-tpl="111" style="display: flex; flex-direction: column; gap: 16px; min-width: 0px;"><section data-dc-tpl="112" aria-labelledby="pop-t" style="border: 1px solid rgb(213, 218, 230); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px;"><h2 data-dc-tpl="113" id="pop-t" class="disp" style="margin: 0px 0px 8px; font-size: 22px;">Les plus lues</h2><a data-dc-tpl="115" href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0px, 1fr); gap: 10px; align-items: start; padding: 8px 0px; border-top: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="116" class="disp num" style="font-size: 26px; color: rgb(255, 197, 61); -webkit-text-stroke: 1px rgb(122, 86, 0);"><span class="sc-interp">1</span></span><span data-dc-tpl="117" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="118" style="font-size: 14px; font-weight: 800; line-height: 1.3;"><span class="sc-interp">PGL Masters : MOUZ s’impose au bout du suspense face à Team Vitality</span></span><span data-dc-tpl="119" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Counter-Strike 2</span> · <span class="sc-interp">il y a 2 h</span></span></span></a><a data-dc-tpl="115" href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0px, 1fr); gap: 10px; align-items: start; padding: 8px 0px; border-top: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="116" class="disp num" style="font-size: 26px; color: rgb(255, 197, 61); -webkit-text-stroke: 1px rgb(122, 86, 0);"><span class="sc-interp">2</span></span><span data-dc-tpl="117" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="118" style="font-size: 14px; font-weight: 800; line-height: 1.3;"><span class="sc-interp">LEC : Karmine Corp arrache sa place en finale</span></span><span data-dc-tpl="119" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">League of Legends</span> · <span class="sc-interp">il y a 4 h</span></span></span></a><a data-dc-tpl="115" href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0px, 1fr); gap: 10px; align-items: start; padding: 8px 0px; border-top: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="116" class="disp num" style="font-size: 26px; color: rgb(255, 197, 61); -webkit-text-stroke: 1px rgb(122, 86, 0);"><span class="sc-interp">3</span></span><span data-dc-tpl="117" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="118" style="font-size: 14px; font-weight: 800; line-height: 1.3;"><span class="sc-interp">Team Vitality annonce un nouveau coach pour son équipe LoL</span></span><span data-dc-tpl="119" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">League of Legends</span> · <span class="sc-interp">il y a 8 h</span></span></span></a><a data-dc-tpl="115" href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0px, 1fr); gap: 10px; align-items: start; padding: 8px 0px; border-top: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="116" class="disp num" style="font-size: 26px; color: rgb(255, 197, 61); -webkit-text-stroke: 1px rgb(122, 86, 0);"><span class="sc-interp">4</span></span><span data-dc-tpl="117" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="118" style="font-size: 14px; font-weight: 800; line-height: 1.3;"><span class="sc-interp">Major CS2 : le programme complet des playoffs</span></span><span data-dc-tpl="119" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Counter-Strike 2</span> · <span class="sc-interp">hier</span></span></span></a><a data-dc-tpl="115" href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0px, 1fr); gap: 10px; align-items: start; padding: 8px 0px; border-top: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="116" class="disp num" style="font-size: 26px; color: rgb(255, 197, 61); -webkit-text-stroke: 1px rgb(122, 86, 0);"><span class="sc-interp">5</span></span><span data-dc-tpl="117" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="118" style="font-size: 14px; font-weight: 800; line-height: 1.3;"><span class="sc-interp">VCT EMEA : Heretics sortent Fnatic en deux maps</span></span><span data-dc-tpl="119" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Valorant</span> · <span class="sc-interp">il y a 6 h</span></span></span></a></section><a data-dc-tpl="120" href="LiveHubMenu.dc.html" style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 22px; background: rgb(10, 14, 26); color: rgb(255, 255, 255);"><span data-dc-tpl="121" class="pill" style="align-self: flex-start; background: rgb(212, 31, 52); color: rgb(255, 255, 255);"><span data-dc-tpl="122" class="dot" style="width: 6px; height: 6px; background: rgb(255, 255, 255);"></span>6 LIVES</span><span data-dc-tpl="123" class="disp" style="font-size: 22px; color: rgb(255, 255, 255);">Des matchs se jouent en ce moment</span><span data-dc-tpl="124" style="font-size: 13px; font-weight: 700; color: rgb(255, 197, 61);">Regarder les lives ›</span></a></aside></div></main></div></div></div>
 
-<!-- HEADER (identique à la V3) -->
-<header style="background: #0A0E1A; color: #FFFFFF">
-<div class="wrap" style="display: flex; align-items: center; gap: 18px; min-height: 68px; flex-wrap: wrap">
-<a href="LiveHubMenu.dc.html" aria-label="eSportly, accueil" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF">
-<svg width="36" height="36" sc-camel-view-box="0 0 512 512" aria-hidden="true"><path d="M256 22 L462 82 L462 250 C462 378 372 450 256 494 C140 450 50 378 50 250 L50 82 Z" fill="#0A0E1A" stroke="#FFC53D" stroke-width="22"></path><path d="M132 280 L244 280 L244 238 L216 210 L156 210 L128 238 L128 332 L156 360 L244 360" fill="none" stroke="#FFC53D" stroke-width="40"></path><path d="M380 160 L300 160 L268 192 L268 232 L300 260 L348 260 L380 292 L380 330 L348 362 L262 362" fill="none" stroke="#F4F6FF" stroke-width="42"></path><circle cx="420" cy="98" r="44" fill="#FFC53D" stroke="#0A0E1A" stroke-width="14"></circle><path d="M420 76 L420 104 M420 118 L420 122" stroke="#0A0E1A" stroke-width="14"></path></svg>
-<span class="disp" style="font-size: 28px">eSportly</span>
-</a>
-<nav aria-label="Menu principal" style="margin-left: auto; display: flex; align-items: center; flex-wrap: wrap">
-<a href="LiveHubMenu.dc.html" aria-label="Live : 6 matchs en direct" style="font-family: 'Rajdhani', 'Arial Narrow', sans-serif; margin-right: 6px; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 6px 0 12px; border-radius: 999px; background: #D41F34; color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: .04em">
-<span class="dot" style="background: #FFFFFF; box-shadow: 0 0 0 3px rgba(255,255,255,.25)"></span>LIVE
-<span class="num" style="min-width: 26px; height: 26px; padding: 0 7px; box-sizing: border-box; border-radius: 999px; background: #FFFFFF; color: #D41F34; display: inline-flex; align-items: center; justify-content: center; font-size: 16px">6</span>
-</a>
-<a href="Equipes.dc.html" class="nav-btn">Équipes</a>
-<a href="#top" class="nav-btn">Matchs</a>
-<a href="Tournois.dc.html" class="nav-btn">Tournois</a>
-<a href="News.dc.html" class="nav-btn" aria-current="page" style="color: #FFC53D; box-shadow: inset 0 -3px 0 #FFC53D">News</a>
-</nav>
-<div style="display: flex; align-items: center; gap: 14px">
-<a href="#top" class="disp" style="display: inline-flex; align-items: center; min-height: 40px; background: #FFC53D; color: #1A1300; font-size: 18px; padding: 0 14px; border-radius: 999px">eSportly+</a>
-<div style="position: relative">
-<button type="button" sc-camel-on-click="{{toggleLang}}" aria-expanded="{{langOpenStr}}" aria-haspopup="listbox" aria-label="Langue du site : {{langName}}" style="font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid #2A3247; background: #141A2B; color: #FFFFFF; font-size: 13px; font-weight: 800">
-<svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>{{langCode}}
-<svg width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-</button>
-<sc-if value="{{langOpen}}" hint-placeholder-val="{{false}}">
-<div role="listbox" aria-label="Langue du site" style="position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 210px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 18px 40px rgba(10,14,26,.35); padding: 6px; display: flex; flex-direction: column; gap: 2px">
-<sc-for list="{{langOptions}}" as="lo" hint-placeholder-count="5">
-<button type="button" role="option" aria-selected="{{lo.sel}}" sc-camel-on-click="{{lo.pick}}" style="{{lo.style}}"><span style="{{lo.codeStyle}}">{{lo.code}}</span><span style="flex: 1">{{lo.label}}</span>
-<sc-if value="{{lo.on}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#7A5600" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
-</button>
-</sc-for>
-</div>
-</sc-if>
-</div>
-<div class="num" style="position: relative; display: flex; flex-direction: column; align-items: flex-end; border-left: 1px solid #2A3247; padding-left: 14px; min-width: 190px">
-<span class="disp" style="font-size: 28px; color: #FFFFFF">{{clock}}</span>
-<span style="font-size: 12px; font-weight: 600; color: #A9B1C2; text-transform: capitalize">{{date}}</span>
-<label for="tz" style="position: absolute; left: -9999px">{{tzA11y}}</label>
-
-</div>
-</div>
-</div>
-</header>
-
-<!-- BARRE DES JEUX : chaque pavé = une page /tournois/<jeu> -->
-<section aria-label="Tournois par jeu" style="background: #0A0E1A; border-top: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 -1px 0 #FFC53D">
-<div class="wrap" style="padding-top: 12px; padding-bottom: 12px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 32px">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #A9B1C2">FILTRER LES NEWS PAR JEU</span>
-<sc-if value="{{hasGame}}" hint-placeholder-val="{{false}}">
-<button type="button" sc-camel-on-click="{{allGames}}" style="font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: transparent; color: #FFFFFF; font-size: 13px; font-weight: 700">
-<svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>Tous les jeux</button>
-</sc-if>
-</div>
-<div class="g-strip">
-<sc-for list="{{games}}" as="g" hint-placeholder-count="14">
-<button type="button" class="gtile" sc-camel-on-click="{{g.toggle}}" aria-current="{{g.current}}" title="News {{g.name}}" aria-label="News {{g.name}}" style="{{g.tileStyle}}">
-<img src="{{g.logo}}" alt="" class="gtile-logo">
-<span style="{{g.nameStyle}}">{{g.short}}</span>
-</button>
-</sc-for>
-</div>
-</div>
-</section>
-
-<main id="top" class="wrap" style="padding-top: 22px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 28px">
-
-<div style="display: flex; flex-direction: column; gap: 10px">
-<nav aria-label="Fil d'Ariane" style="font-size: 13px; font-weight: 600; color: #485060; display: flex; gap: 8px; flex-wrap: wrap">
-<a href="LiveHubMenu.dc.html" style="color: #485060">Accueil</a><span aria-hidden="true">›</span>
-<a href="#top" sc-camel-on-click="{{allGames}}" style="color: #485060">News</a>
-<sc-if value="{{hasGame}}" hint-placeholder-val="{{false}}"><span aria-hidden="true">›</span><span style="color: #0E1424">{{gameName}}</span></sc-if>
-</nav>
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
-<h1 class="disp" style="margin: 0; font-size: 52px">{{nw.h1}}</h1>
-<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3A4250">Résultats, transferts, annonces et tournois : toute l'actu esport, mise à jour en continu.</p>
-</div>
-<span class="pill" style="background: #FFF4D6; color: #7A5600">Contenu fictif pour la maquette</span>
-</div>
-</div>
-
-<!-- À la une -->
-<sc-if value="{{nw.hasFeat}}" hint-placeholder-val="{{true}}">
-<section aria-label="À la une" class="g-une">
-<a href="News-Article.dc.html" class="ncard ncard-big">
-<span class="nimg" style="{{nw.feat.img}}"><img src="{{nw.feat.logo}}" alt="" class="nimg-logo" style="max-height: 70px"><span class="pill" style="position: absolute; top: 16px; left: 16px; background: #FFC53D; color: #1A1300">À LA UNE</span></span>
-<span style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px">
-<span style="{{nw.feat.tagStyle}}">{{nw.feat.tag}}</span>
-<span class="disp" style="font-size: 36px; line-height: 1.05">{{nw.feat.title}}</span>
-<span style="font-size: 16px; line-height: 1.5; color: #3A4250">{{nw.feat.excerpt}}</span>
-<span style="font-size: 13px; font-weight: 600; color: #485060">{{nw.feat.ago}} · {{nw.feat.read}} de lecture</span>
-</span>
-</a>
-<div style="display: flex; flex-direction: column; gap: 14px">
-<sc-for list="{{nw.second}}" as="n" hint-placeholder-count="2">
-<a href="News-Article.dc.html" class="ncard" style="flex: 1">
-<span class="nimg" style="{{n.img}}; aspect-ratio: auto; height: 150px"><img src="{{n.logo}}" alt="" class="nimg-logo"></span>
-<span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px">
-<span style="{{n.tagStyle}}">{{n.tag}}</span>
-<span class="disp" style="font-size: 22px; line-height: 1.1">{{n.title}}</span>
-<span style="font-size: 12px; font-weight: 600; color: #485060">{{n.ago}}</span>
-</span>
-</a>
-</sc-for>
-</div>
-</section>
-</sc-if>
-
-<div class="g-news">
-<!-- Toutes les news -->
-<section aria-labelledby="all-t" style="display: flex; flex-direction: column; gap: 14px; min-width: 0">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
-<h2 id="all-t" class="disp" style="margin: 0; font-size: 30px">Toutes les news</h2>
-<div role="group" aria-label="Catégories" style="display: flex; gap: 4px; flex-wrap: wrap; background: #F6F7FB; border: 1px solid #D5DAE6; border-radius: 999px; padding: 4px">
-<sc-for list="{{nw.cats}}" as="c" hint-placeholder-count="5">
-<button type="button" class="tab" sc-camel-on-click="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">{{c.label}}</button>
-</sc-for>
-</div>
-</div>
-<div class="ngrid">
-<sc-for list="{{nw.list}}" as="n" hint-placeholder-count="6">
-<a href="News-Article.dc.html" class="ncard">
-<span class="nimg" style="{{n.img}}"><img src="{{n.logo}}" alt="" class="nimg-logo"></span>
-<span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1">
-<span style="{{n.tagStyle}}">{{n.tag}}</span>
-<span class="disp" style="font-size: 21px; line-height: 1.1">{{n.title}}</span>
-<span style="font-size: 14px; line-height: 1.45; color: #3A4250">{{n.excerpt}}</span>
-<span style="margin-top: auto; font-size: 12px; font-weight: 600; color: #485060">{{n.ago}} · {{n.read}}</span>
-</span>
-</a>
-</sc-for>
-</div>
-<sc-if value="{{nw.none}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 22px; border: 1px solid #D5DAE6; border-radius: 20px; font-size: 15px; color: #485060">Pas encore de news dans cette catégorie pour ce jeu.</p></sc-if>
-<button type="button" class="tab" style="align-self: center; background: #0A0E1A; color: #FFFFFF; padding: 0 26px">Voir plus de news</button>
-</section>
-
-<!-- Colonne droite -->
-<aside style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
-<section aria-labelledby="pop-t" style="border: 1px solid #D5DAE6; border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
-<h2 id="pop-t" class="disp" style="margin: 0 0 8px; font-size: 22px">Les plus lues</h2>
-<sc-for list="{{nw.popular}}" as="p" hint-placeholder-count="5">
-<a href="News-Article.dc.html" style="display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid #ECEFF6">
-<span class="disp num" style="font-size: 26px; color: #FFC53D; -webkit-text-stroke: 1px #7A5600">{{p.n}}</span>
-<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 800; line-height: 1.3">{{p.title}}</span><span style="font-size: 12px; font-weight: 600; color: #485060">{{p.game}} · {{p.ago}}</span></span>
-</a>
-</sc-for>
-</section>
-<a href="LiveHubMenu.dc.html" style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 22px; background: #0A0E1A; color: #FFFFFF">
-<span class="pill" style="align-self: flex-start; background: #D41F34; color: #FFFFFF"><span class="dot" style="width: 6px; height: 6px; background: #FFFFFF"></span>6 LIVES</span>
-<span class="disp" style="font-size: 22px; color: #FFFFFF">Des matchs se jouent en ce moment</span>
-<span style="font-size: 13px; font-weight: 700; color: #FFC53D">Regarder les lives ›</span>
-</a>
-</aside>
-</div>
-</main>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2100}}">
-class Component extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { game: null, cat: 'all', tab: 'live', hov: null, pinned: null, now: Date.now(), lang: 'fr', tz: null };
-  }
-  componentDidMount() {
-    var self = this;
-    this.timer = setInterval(function () { self.setState({ now: Date.now() }); }, 1000);
-  }
-  componentWillUnmount() { clearInterval(this.timer); }
-  renderVals() {
-    var self = this, st = this.state;
-    // ===== Gestion globale des heures (identique sur toutes les pages) =====
-    var TIME = (function () {
-      var lang = st.lang || 'fr', L = lang === 'fr';
-      var LN = { fr: 'Français', en: 'English', es: 'Español', de: 'Deutsch', pt: 'Português' };
-      var LBL = { fr: ['Heure de Paris', 'Mon heure locale', 'Heure du tournoi', 'Londres', 'Séoul'], en: ['Paris time', 'My local time', 'Event local time', 'London', 'Seoul'], es: ['Hora de París', 'Mi hora local', 'Hora del torneo', 'Londres', 'Seúl'], de: ['Pariser Zeit', 'Meine Ortszeit', 'Ortszeit des Turniers', 'London', 'Seoul'], pt: ['Hora de Paris', 'A minha hora local', 'Hora do torneio', 'Londres', 'Seul'] }[lang];
-      var NOTE = { fr: 'Horaires : ', en: 'Times: ', es: 'Horarios: ', de: 'Uhrzeiten: ', pt: 'Horários: ' }[lang];
-      var localTz = 'Europe/Paris';
-      try { localTz = Intl.DateTimeFormat().resolvedOptions().timeZone || localTz; } catch (e) {}
-      var def = L ? 'paris' : 'local';
-      var mode = st.tz || def;
-      var TZ = { paris: 'Europe/Paris', local: localTz, london: 'Europe/London', ny: 'America/New_York', la: 'America/Los_Angeles', sp: 'America/Sao_Paulo', seoul: 'Asia/Seoul', shanghai: 'Asia/Shanghai' };
-      var OPT = [['paris', LBL[0]], ['local', LBL[1]], ['event', LBL[2]], ['london', LBL[3]], ['ny', 'New York'], ['la', 'Los Angeles'], ['sp', 'São Paulo'], ['seoul', LBL[4]], ['shanghai', 'Shanghai']];
-      var loc = { fr: 'fr-FR', en: 'en-GB', es: 'es-ES', de: 'de-DE', pt: 'pt-PT' }[lang];
-      var clockTz = mode === 'event' ? TZ[def] : TZ[mode];
-      var tzOf = function (evTz) { return mode === 'event' ? (evTz || clockTz) : TZ[mode]; };
-      var now = new Date(st.now);
-      var label = OPT.filter(function (o) { return o[0] === mode; })[0][1];
-      var zone = function (date, evTz) {
-        if (mode === def) return '';
-        try { var p = new Intl.DateTimeFormat(loc, { timeZoneName: 'short', timeZone: tzOf(evTz) }).formatToParts(date).filter(function (x) { return x.type === 'timeZoneName'; })[0]; return p ? p.value : ''; } catch (e) { return ''; }
-      };
-      var hm = function (date, evTz) { return new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: tzOf(evTz) }).format(date); };
-      var wd = function (date, evTz) { return new Intl.DateTimeFormat(loc, { weekday: 'short', timeZone: tzOf(evTz) }).format(date); };
-      return {
-        mode: mode,
-        clock: new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: clockTz }).format(now),
-        date: new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: clockTz }).format(now),
-        at: function (dayOff, hUTC, mUTC) { return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + dayOff, hUTC, mUTC || 0)); },
-        hm: hm, wd: wd, zone: zone,
-        label: function (date, evTz, withDay) { var z = zone(date, evTz); return (withDay ? wd(date, evTz) + ' ' : '') + hm(date, evTz) + (z ? ' ' + z : ''); },
-        note: NOTE + label,
-        a11y: L ? 'Fuseau horaire des horaires affichés' : 'Time zone for displayed times',
-        tzOptions: OPT.map(function (o) { return { v: o[0], label: o[1] }; }),
-        onTz: function (ev) { self.setState({ tz: ev.target.value }); },
-        langCode: lang.toUpperCase(), langName: LN[lang], langOpen: !!st.langOpen, langOpenStr: st.langOpen ? 'true' : 'false',
-        toggleLang: function () { self.setState({ langOpen: !self.state.langOpen }); },
-        langOptions: ['fr', 'en', 'es', 'de', 'pt'].map(function (k) {
-          var on = lang === k;
-          return { code: k.toUpperCase(), label: LN[k], on: on, sel: on ? 'true' : 'false', pick: function () { self.setState({ lang: k, tz: null, langOpen: false }); },
-            style: 'font-family: inherit; cursor: pointer; border: 0; border-radius: 10px; min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 10px; text-align: left; font-size: 15px; font-weight: 700; color: #0E1424; background: ' + (on ? '#FFF4D6' : 'transparent'),
-            codeStyle: 'display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 24px; border-radius: 6px; font-size: 11px; font-weight: 800; ' + (on ? 'background: #FFC53D; color: #1A1300' : 'background: #0A0E1A; color: #FFFFFF') };
-        })
-      };
-    })();
-    var EVTZ = { e1: 'Europe/Budapest', e2: 'Europe/Berlin', e3: 'Europe/Berlin', e4: 'Europe/Paris', e5: 'Europe/Stockholm', e6: 'Asia/Singapore', e7: 'America/Sao_Paulo', e8: 'America/Los_Angeles', e9: 'Europe/Paris', e10: 'Europe/Paris', e11: 'America/Chicago' };
-    var GAMES = [['lol','League of Legends','LoL','league-of-legends'],['cs2','Counter-Strike 2','CS2','counter-strike-2'],['valo','Valorant','Valo','valorant'],['rl','Rocket League','RL','rocket-league'],['dota','Dota 2','Dota 2','dota-2'],['ow','Overwatch 2','OW2','overwatch-2'],['r6','Rainbow Six Siege','R6','rainbow-six-siege'],['cod','Call of Duty','CoD','call-of-duty'],['mlbb','Mobile Legends: Bang Bang','MLBB','mobile-legends'],['hok','Honor of Kings','HoK','honor-of-kings'],['fc','EA Sports FC','EA FC','ea-sports-fc'],['sc2','StarCraft II','SC2','starcraft-2'],['bw','StarCraft: Brood War','BW','starcraft-brood-war'],['wr','LoL: Wild Rift','Wild Rift','wild-rift']];
-    var GLOGO = { lol: '/_blob/b921740434ebb55c0a8a74b6a13ec74c', cs2: '/_blob/280199a9397bbe1da37b23e0909da989', valo: '/_blob/2ec5dff2161b6aa5bd2c130e765d49d0', rl: '/_blob/1044e40ea678dc6e28bf11d916e7ec1b', dota: '/_blob/c3343751dff3b20aaf06fb0757307268', ow: '/_blob/b26ab30daad05e2098f9794e8e9a6664', r6: '/_blob/e44c9f69a78a1985829457cfd0e6d717', cod: '/_blob/c1a516cd9c745818303e32f6bce04863', mlbb: '/_blob/447cbce9015c8a95430695dd66fb93ee', hok: '/_blob/ab1b1f7c1d8c68c2be6302f0c80d2f7e', fc: '/_blob/46e86e11dc804209eb64b093279708da', sc2: '/_blob/f08a140793f5a08d8e5e6ffc50a21678', bw: '/_blob/c11894b9630ad84a0d8bab39611447de', wr: '/_blob/44e8e81d3035233b506bc9751c1bc1a2' };
-    var GCOL = { lol: '#0E3B4F', cs2: '#4A3A12', valo: '#6A1A28', rl: '#123A6B', dota: '#5A1A12', ow: '#6A3C10', r6: '#26303F', cod: '#23331F', mlbb: '#33246A', hok: '#5A340C', fc: '#0F4434', sc2: '#132C55', bw: '#3A342C', wr: '#124A50' };
-    var gname = {}, gslug = {};
-    GAMES.forEach(function (g) { gname[g[0]] = g[1]; gslug[g[0]] = g[3]; });
-
-    var EV = [
-      { id: 'e1', g: 'cs2', name: 'Major CS2', region: 'Europe', stage: 'Demi-finales', teams: 16, dates: '6 – 16 nov.', st: 'live', ph: 'sf', t: ['Team Vitality','MOUZ','Natus Vincere','FaZe Clan','Team Spirit','FURIA','G2 Esports','Falcons'] },
-      { id: 'e2', g: 'lol', name: 'LEC Playoffs', region: 'EMEA', stage: 'Demi-finales', teams: 8, dates: '1 – 23 nov.', st: 'live', ph: 'sf', t: ['G2 Esports','Fnatic','Karmine Corp','Team Vitality','Team Heretics','GIANTX','Movistar KOI','SK Gaming'] },
-      { id: 'e3', g: 'valo', name: 'VCT EMEA Stage 2', region: 'EMEA', stage: 'Quarts', teams: 10, dates: '4 – 20 nov.', st: 'live', ph: 'qf', t: ['Heretics','Fnatic','Team Liquid','Karmine Corp','Natus Vincere','Gentle Mates','Team Vitality','FUT Esports'] },
-      { id: 'e4', g: 'rl', name: 'RLCS Open EMEA', region: 'Europe', stage: 'Quarts', teams: 16, dates: '9 – 12 nov.', st: 'live', ph: 'qf', t: ['Karmine Corp','Gentle Mates','Team BDS','Team Vitality','Falcons','Twisted Minds','Geekay Esports','Team Secret'] },
-      { id: 'e5', g: 'dota', name: 'DreamLeague', region: 'International', stage: 'Groupes', teams: 16, dates: '10 – 24 nov.', st: 'live', ph: 'qf', t: ['Team Liquid','Xtreme Gaming','Team Spirit','Tundra','Falcons','PARIVISION','BetBoom','Aurora'] },
-      { id: 'e6', g: 'cs2', name: 'BLAST Premier World Final', region: 'International', stage: 'À venir', teams: 8, dates: '2 – 7 déc.', st: 'up', ph: 'up', t: ['Team Vitality','MOUZ','Natus Vincere','FaZe Clan','Team Spirit','FURIA','G2 Esports','Falcons'] },
-      { id: 'e7', g: 'r6', name: 'Six Invitational', region: 'International', stage: 'À venir', teams: 20, dates: 'févr.', st: 'up', ph: 'up', t: ['Team BDS','FaZe Clan','w7m esports','Team Liquid','Ninjas in Pyjamas','G2 Esports','Spacestation Gaming','Shopify Rebellion'] },
-      { id: 'e8', g: 'ow', name: 'OWCS World Finals', region: 'International', stage: 'À venir', teams: 8, dates: '28 – 30 nov.', st: 'up', ph: 'up', t: ['Team Falcons','Crazy Raccoon','Twisted Minds','Team Liquid','Spacestation Gaming','Virtus.pro','Geekay Esports','Dallas Fuel'] },
-      { id: 'e9', g: 'lol', name: 'Worlds', region: 'International', stage: 'Terminé', teams: 17, dates: '25 sept. – 2 nov.', st: 'done', ph: 'done', t: ['T1','KT Rolster','Gen.G','Hanwha Life','Bilibili Gaming','Top Esports','G2 Esports','FlyQuest'] },
-      { id: 'e10', g: 'valo', name: 'Valorant Champions', region: 'International', stage: 'Terminé', teams: 16, dates: 'sept. – oct.', st: 'done', ph: 'done', t: ['Fnatic','Paper Rex','Team Heretics','NRG','G2 Esports','MIBR','Team Liquid','DRX'] },
-      { id: 'e11', g: 'cod', name: 'CDL Major', region: 'Amérique du Nord', stage: 'Terminé', teams: 12, dates: 'oct.', st: 'done', ph: 'done', t: ['OpTic Texas','Atlanta FaZe','LA Thieves','Toronto Ultra','Boston Breach','Carolina Royal Ravens','Vegas Falcons','Miami Heretics'] }
-    ];
-
-    var PAL = [['#0A0E1A','#FFC53D'],['#FFC53D','#1A1300'],['#1E3A8A','#FFFFFF'],['#D41F34','#FFFFFF'],['#0A5A3B','#FFFFFF'],['#3A4250','#FFFFFF'],['#5B21B6','#FFFFFF']];
-    function ini(n) { var w = n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').filter(Boolean); return (w.length > 1 ? w[0][0] + w[1][0] : n.slice(0, 2)).toUpperCase(); }
-    function mono(n) { var h = 0; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) % 997; var p = PAL[h % PAL.length]; return 'flex: 0 0 auto; width: 20px; height: 20px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 9px; background: ' + p[0] + '; color: ' + p[1]; }
-    var TBD = 'À déterminer';
-    function mk(a, b, sa, sb, opts) {
-      opts = opts || {};
-      var done = typeof sa === 'number' && typeof sb === 'number' && !opts.live;
-      var aw = done && sa > sb, bw = done && sb > sa;
-      var win = 'font-weight: 800; color: #0E1424; background: #FFF4D6; box-shadow: inset 4px 0 0 #FFC53D';
-      var lose = 'font-weight: 500; color: #8A93A6; background: #FFFFFF; opacity: .75';
-      var neu = 'font-weight: 700; color: #0E1424', tbd = 'font-weight: 600; color: #8A93A6; font-style: italic';
-      return {
-        a: a, b: b, ai: a === TBD ? '?' : ini(a), bi: b === TBD ? '?' : ini(b),
-        am: a === TBD ? mono('?').replace(/background: [^;]+; color: [^;]+$/, 'background: #ECEFF6; color: #8A93A6') : mono(a),
-        bm: b === TBD ? mono('?').replace(/background: [^;]+; color: [^;]+$/, 'background: #ECEFF6; color: #8A93A6') : mono(b),
-        sa: sa === null || sa === undefined ? '–' : sa, sb: sb === null || sb === undefined ? '–' : sb,
-        aStyle: a === TBD ? tbd : (done ? (aw ? win : lose) : neu), bStyle: b === TBD ? tbd : (done ? (bw ? win : lose) : neu),
-        live: !!opts.live, hasTime: !!opts.time, time: opts.time || '',
-        box: opts.live ? 'border-color: #D41F34; box-shadow: 0 0 0 1px #D41F34' : (opts.final && done ? 'border-color: #FFC53D; box-shadow: 0 0 0 1px #FFC53D' : ''),
-        winner: aw ? a : (bw ? b : null)
-      };
-    }
-    function bracket(e) {
-      var t = e.t, z = EVTZ[e.id];
-      var T = function (off, hUTC, day) { return TIME.label(TIME.at(off, hUTC), z, day); };
-      if (e.ph === 'up') {
-        return [
-          { name: 'QUARTS', matches: [mk(t[0], t[1], null, null, { time: T(21, 17, true) }), mk(t[2], t[3], null, null, { time: T(21, 20, true) }), mk(t[4], t[5], null, null, { time: T(22, 17, true) }), mk(t[6], t[7], null, null, { time: T(22, 20, true) })] },
-          { name: 'DEMI-FINALES', matches: [mk(TBD, TBD), mk(TBD, TBD)] },
-          { name: 'FINALE', matches: [mk(TBD, TBD, null, null, { final: true })] }
-        ];
-      }
-      var q = [mk(t[0], t[1], 2, 1), mk(t[2], t[3], 2, 0), mk(t[4], t[5], 1, 2), mk(t[6], t[7], 2, 0)];
-      if (e.ph === 'qf') {
-        q[2] = mk(t[4], t[5], 1, 1, { live: true });
-        q[3] = mk(t[6], t[7], null, null, { time: T(0, 20, false) });
-        return [
-          { name: 'QUARTS', matches: q },
-          { name: 'DEMI-FINALES', matches: [mk(q[0].winner, q[1].winner, null, null, { time: T(3, 17, true) }), mk(TBD, TBD)] },
-          { name: 'FINALE', matches: [mk(TBD, TBD, null, null, { final: true })] }
-        ];
-      }
-      var s1 = mk(q[0].winner, q[1].winner, 2, 1);
-      if (e.ph === 'sf') {
-        return [
-          { name: 'QUARTS', matches: q },
-          { name: 'DEMI-FINALES', matches: [s1, mk(q[2].winner, q[3].winner, 1, 1, { live: true })] },
-          { name: 'FINALE', matches: [mk(s1.winner, TBD, null, null, { final: true, time: T(4, 18, true) })] }
-        ];
-      }
-      var s2 = mk(q[2].winner, q[3].winner, 0, 2);
-      var f = mk(s1.winner, s2.winner, 3, 2, { final: true });
-      return [{ name: 'QUARTS', matches: q }, { name: 'DEMI-FINALES', matches: [s1, s2] }, { name: 'FINALE', matches: [f] }];
-    }
-
-    var game = st.game, tab = st.tab;
-    var inGame = EV.filter(function (e) { return !game || e.g === game; });
-    var liveGames = {};
-    EV.forEach(function (e) { if (e.st === 'live') liveGames[e.g] = 1; });
-
-    var games = GAMES.map(function (g) {
-      var cur = game === g[0];
-      var pick = function () {
-        var has = function (s) { return EV.some(function (e) { return e.g === g[0] && e.st === s; }); };
-        var tb = has('live') ? 'live' : (has('up') ? 'up' : 'done');
-        self.setState({ game: g[0], tab: tb, pinned: null, hov: null });
-      };
-      return {
-        key: g[0], name: g[1], short: g[2], logo: GLOGO[g[0]], ariaLive: liveGames[g[0]] ? ', tournoi en cours' : '', hasLive: !!liveGames[g[0]], current: cur ? 'page' : 'false', pick: pick,
-        toggle: cur ? function () { self.setState({ game: null, pinned: null }); } : pick,
-        tileStyle: '--gc: ' + GCOL[g[0]],
-        nameStyle: "position: relative; font-family: 'Rajdhani', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: .03em; color: " + (cur ? '#FFC53D' : '#FFFFFF')
-      };
-    });
-
-    var TABS = [['live', 'En cours'], ['up', 'À venir'], ['done', 'Terminés']];
-    var tabs = TABS.map(function (t) {
-      var on = tab === t[0]; var c = inGame.filter(function (e) { return e.st === t[0]; }).length;
-      return { label: t[1], count: c, selected: on ? 'true' : 'false', pick: function () { self.setState({ tab: t[0], pinned: null }); },
-        style: on ? 'background: #0A0E1A; color: #FFFFFF' : 'background: transparent; color: #3A4250',
-        countStyle: 'font-size: 12px; font-weight: 800; padding: 1px 7px; border-radius: 999px; ' + (on ? 'background: #FFC53D; color: #1A1300' : 'background: #ECEFF6; color: #485060') };
-    });
-
-    var featRaw = inGame.find(function (e) { return e.st === 'live'; });
-    var q = (st.q || '').trim().toLowerCase();
-    var match = function (e) { return !q || (e.name + ' ' + gname[e.g] + ' ' + e.t.join(' ')).toLowerCase().indexOf(q) >= 0; };
-    var list = inGame.filter(function (e) { return e.st === tab && match(e) && (!featRaw || tab !== 'live' || e.id !== featRaw.id); });
-    var open = st.pinned || st.hov;
-    var events = list.map(function (e) {
-      var o = open === e.id;
-      var rounds = bracket(e);
-      var fin = rounds[2].matches[0];
-      var status = e.st === 'live' ? 'EN COURS' : (e.st === 'up' ? e.dates.toUpperCase() : 'TERMINÉ');
-      return {
-        name: e.name, gameName: gname[e.g], region: e.region, stage: e.stage, teams: e.teams, dates: e.dates, logo: GLOGO[e.g],
-        logoBg: 'background: ' + GCOL[e.g], isLive: e.st === 'live', status: status,
-        statusStyle: e.st === 'live' ? 'background: #D41F34; color: #FFFFFF' : (e.st === 'up' ? 'background: #0A0E1A; color: #FFFFFF' : 'background: #FFF4D6; color: #7A5600'),
-        open: o, openStr: o ? 'true' : 'false', rounds: rounds,
-        chev: 'transition: transform .2s ease; transform: rotate(' + (o ? 180 : 0) + 'deg)',
-        winnerLine: e.st === 'done' && fin.winner ? 'Vainqueur : ' + fin.winner : (e.st === 'live' ? 'Phase en cours : ' + e.stage : 'Début : ' + e.dates),
-        enter: function () { if (!self.state.pinned) self.setState({ hov: e.id }); },
-        leave: function () { if (!self.state.pinned) self.setState({ hov: null }); },
-        toggle: function () { self.setState({ pinned: self.state.pinned === e.id ? null : e.id, hov: null }); }
-      };
-    });
-
-    var feat = featRaw ? {
-      name: featRaw.name, gameName: gname[featRaw.g], dates: featRaw.dates, region: featRaw.region, teams: featRaw.teams, stage: featRaw.stage.toUpperCase(),
-      logo: GLOGO[featRaw.g], rounds: bracket(featRaw),
-      head: 'display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 22px 24px; background: linear-gradient(110deg, ' + GCOL[featRaw.g] + ' 0%, #0A0E1A 70%)'
-    } : {};
-
-    var d = new Date(st.now);
-    var pad = function (x) { return (x < 10 ? '0' : '') + x; };
-    var gn = game ? gname[game] : '';
-    // ===== News (contenu fictif) =====
-    var NEWSDATA = [
-      { id: 'n1', g: 'cs2', cat: 'res', title: 'PGL Masters : MOUZ s’impose au bout du suspense face à Team Vitality', excerpt: 'Menés deux maps à une, les Européens ont renversé la finale pour décrocher le titre en cinq maps.', ago: 'il y a 2 h', read: '4 min' },
-      { id: 'n2', g: 'lol', cat: 'res', title: 'LEC : Karmine Corp arrache sa place en finale', excerpt: 'Au terme d’une série en cinq games, la KC retrouve la finale face à G2 Esports.', ago: 'il y a 4 h', read: '3 min' },
-      { id: 'n3', g: 'valo', cat: 'res', title: 'VCT EMEA : Heretics sortent Fnatic en deux maps', excerpt: 'Une victoire nette qui envoie Heretics directement en finale de la phase 2.', ago: 'il y a 6 h', read: '3 min' },
-      { id: 'n4', g: 'lol', cat: 'trans', title: 'Team Vitality annonce un nouveau coach pour son équipe LoL', excerpt: 'Le club français remanie son staff avant la prochaine saison.', ago: 'il y a 8 h', read: '2 min' },
-      { id: 'n5', g: 'rl', cat: 'res', title: 'RLCS : Gentle Mates créent la surprise en quart', excerpt: 'Outsiders du tableau, les M8 éliminent l’un des favoris au game 7.', ago: 'hier', read: '3 min' },
-      { id: 'n6', g: 'cs2', cat: 'tour', title: 'Major CS2 : le programme complet des playoffs', excerpt: 'Horaires, affiches et format : tout ce qu’il faut savoir avant les quarts.', ago: 'hier', read: '5 min' },
-      { id: 'n7', g: 'dota', cat: 'res', title: 'DreamLeague : Team Liquid et Xtreme Gaming dos à dos', excerpt: 'Une série serrée qui laisse le groupe totalement ouvert.', ago: 'hier', read: '2 min' },
-      { id: 'n8', g: 'ow', cat: 'ann', title: 'OWCS World Finals : rendez-vous fin novembre', excerpt: 'Les huit meilleures équipes du monde s’affronteront sur trois jours.', ago: 'il y a 2 j', read: '2 min' },
-      { id: 'n9', g: 'r6', cat: 'tour', title: 'Six Invitational : le format dévoilé', excerpt: '20 équipes, une phase de groupes et un tableau final à double élimination.', ago: 'il y a 2 j', read: '3 min' },
-      { id: 'n10', g: 'valo', cat: 'ann', title: 'Valorant : ce que change le nouveau patch pour la scène pro', excerpt: 'Agents, cartes et économie : les ajustements qui vont peser en compétition.', ago: 'il y a 3 j', read: '4 min' },
-      { id: 'n11', g: 'mlbb', cat: 'tour', title: 'Mobile Legends : les qualifications européennes commencent', excerpt: 'Seize équipes en lice pour deux places au championnat du monde.', ago: 'il y a 3 j', read: '2 min' },
-      { id: 'n12', g: 'cs2', cat: 'trans', title: 'MOUZ prolonge son effectif jusqu’en 2028', excerpt: 'Le club allemand mise sur la stabilité après sa saison réussie.', ago: 'il y a 4 j', read: '2 min' }
-    ];
-    var CATS = { all: 'Tout', res: 'Résultats', trans: 'Transferts', ann: 'Annonces', tour: 'Tournois' };
-    var NW = (function () {
-      var game = st.game, cat = st.cat || 'all';
-      var img = function (g) { return 'background: linear-gradient(150deg, ' + GCOL[g] + ' 0%, #0A0E1A 85%)'; };
-      var tagStyle = 'font-size: 12px; font-weight: 800; letter-spacing: .08em; color: #7A5600; text-transform: uppercase';
-      var view = function (n) { return { title: n.title, excerpt: n.excerpt, ago: n.ago, read: n.read + ' de lecture', game: gname[n.g], logo: GLOGO[n.g], img: img(n.g), tag: gname[n.g] + ' · ' + CATS[n.cat], tagStyle: tagStyle }; };
-      var inGame = NEWSDATA.filter(function (n) { return !game || n.g === game; });
-      var feat = inGame[0];
-      var second = inGame.slice(1, 3);
-      var rest = inGame.slice(3).filter(function (n) { return cat === 'all' || n.cat === cat; });
-      var f = feat ? view(feat) : {};
-      if (feat) f.read = feat.read;
-      return {
-        h1: game ? 'News ' + gname[game] : 'News esport',
-        hasFeat: !!feat, feat: f, second: second.map(view),
-        list: rest.map(view), none: rest.length === 0,
-        cats: Object.keys(CATS).map(function (k) {
-          var on = cat === k;
-          return { label: CATS[k], on: on ? 'true' : 'false', pick: function () { self.setState({ cat: k }); },
-            style: on ? 'background: #0A0E1A; color: #FFFFFF' : 'background: transparent; color: #3A4250' };
-        }),
-        popular: [NEWSDATA[0], NEWSDATA[1], NEWSDATA[3], NEWSDATA[5], NEWSDATA[2]].map(function (n, i) { return { n: i + 1, title: n.title, game: gname[n.g], ago: n.ago }; })
-      };
-    })();
-
-    return {
-      nw: NW,
-      clock: TIME.clock, date: TIME.date, langCode: TIME.langCode, langName: TIME.langName, langOpen: TIME.langOpen, langOpenStr: TIME.langOpenStr, toggleLang: TIME.toggleLang, langOptions: TIME.langOptions, tzOptions: TIME.tzOptions, tzMode: TIME.mode, onTz: TIME.onTz, tzA11y: TIME.a11y, tzNote: TIME.note,
-      games: games, tabs: tabs, events: events, noEvents: events.length === 0,
-      hasFeat: !!featRaw, feat: feat,
-      hasGame: !!game, gameName: gn,
-      q: st.q || '', onQ: function (ev) { self.setState({ q: ev.target.value, pinned: null, hov: null }); },
-      allGames: function () { self.setState({ game: null, pinned: null }); },
-      h1: game ? 'Tournois ' + gn : 'Tournois esport',
-      intro: game ? 'Tous les tournois ' + gn + ' : compétitions en cours, arbres en direct, calendrier et résultats.' : 'Les tournois esport en direct et à venir sur 14 jeux : arbres en temps réel, calendrier et résultats.',
-      slug: game ? '/tournois/' + gslug[game] : '/tournois',
-      listTitle: tab === 'live' ? (featRaw ? 'Autres tournois en cours' : 'Tournois en cours') : (tab === 'up' ? 'Tournois à venir' : 'Tournois terminés')
-    };
-  }
-}
-</script>
 
 
 <div id="preprodbar" style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#eee;font:12px/1.6 system-ui;padding:6px 10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-top:1px solid #333"><b style="color:#ff5c00">PRÉPROD maquette</b><a href="index.html" style="color:#9cf;text-decoration:none">Accueil</a><a href="tournois.html" style="color:#9cf;text-decoration:none">Tournois</a><a href="tournois-cs2.html" style="color:#9cf;text-decoration:none">Tournois CS2</a><a href="equipes.html" style="color:#9cf;text-decoration:none">Équipes</a><a href="equipe-vitality.html" style="color:#9cf;text-decoration:none">Fiche équipe</a><a href="news.html" style="color:#9cf;text-decoration:none">News</a><a href="news-article.html" style="color:#9cf;text-decoration:none">Article</a><span style="margin-left:auto;opacity:.6">non indexé · données fictives</span></div></body></html>

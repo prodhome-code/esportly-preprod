@@ -1,16 +1,56 @@
-<!DOCTYPE html>
-<html lang="fr"><head>
+<html lang="fr"><head><style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  #preprodbar a:hover{color:#FFC53D}body{padding-bottom:46px}</style>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>eSportly — Live hub, menu jeux et équipes</title>
-<script src="assets/b663652741bf.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<style>/* devanagari */
+<style>x-dc{display:none!important}</style>
+<style data-dc-tpl="1">/* devanagari */
 @font-face {
   font-family: 'Rajdhani';
   font-style: normal;
@@ -91,8 +131,7 @@
   src: url("assets/d5448938a162.woff2") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-</style>
-<style>
+</style><style data-dc-tpl="2">
 body{margin:0;background:#FFFFFF}
 a{color:#0E1424;text-decoration:none}a:hover{color:#7A5600}
 .disp{font-family:'Rajdhani','Arial Narrow',sans-serif;font-weight:700;line-height:1}
@@ -133,448 +172,12 @@ a{color:#0E1424;text-decoration:none}a:hover{color:#7A5600}
 .g-games{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 @media (max-width:1000px){.g-teams{grid-template-columns:repeat(3,minmax(0,1fr))}.g-games{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:640px){.g-teams,.g-games{grid-template-columns:repeat(2,minmax(0,1fr))}.hide-sm{display:none !important}.score{font-size:52px !important}}
-</style>
-</helmet>
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif; color: #0E1424; background: #FFFFFF; min-height: 100vh; position: relative">
+</style></head>
+<body>
+<div id="dc-root"><div class="sc-host" data-sc-name="index"><div data-dc-tpl="3" style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, system-ui, &quot;Segoe UI&quot;, Roboto, sans-serif; color: rgb(14, 20, 36); background: rgb(255, 255, 255); min-height: 100vh; position: relative;"><header data-dc-tpl="4" style="background: rgb(10, 14, 26); color: rgb(255, 255, 255); position: relative; z-index: 3;"><div data-dc-tpl="5" class="wrap" style="display: flex; align-items: center; gap: 18px; min-height: 68px; flex-wrap: wrap;"><a data-dc-tpl="6" href="#top" aria-label="eSportly, tous les lives" style="display: flex; align-items: center; gap: 10px; color: rgb(255, 255, 255);"><svg data-dc-tpl="7" width="36" height="36" viewBox="0 0 512 512" aria-hidden="true"><path data-dc-tpl="8" d="M256 22 L462 82 L462 250 C462 378 372 450 256 494 C140 450 50 378 50 250 L50 82 Z" fill="#0A0E1A" stroke="#FFC53D" stroke-width="22"></path><path data-dc-tpl="9" d="M132 280 L244 280 L244 238 L216 210 L156 210 L128 238 L128 332 L156 360 L244 360" fill="none" stroke="#FFC53D" stroke-width="40"></path><path data-dc-tpl="10" d="M380 160 L300 160 L268 192 L268 232 L300 260 L348 260 L380 292 L380 330 L348 362 L262 362" fill="none" stroke="#F4F6FF" stroke-width="42"></path><circle data-dc-tpl="11" cx="420" cy="98" r="44" fill="#FFC53D" stroke="#0A0E1A" stroke-width="14"></circle><path data-dc-tpl="12" d="M420 76 L420 104 M420 118 L420 122" stroke="#0A0E1A" stroke-width="14"></path></svg><span data-dc-tpl="13" class="disp" style="font-size: 28px;">eSportly</span></a><nav data-dc-tpl="14" aria-label="Menu principal" style="margin-left: auto; display: flex; align-items: center; flex-wrap: wrap;"><button data-dc-tpl="15" type="button" class="nav-btn" aria-expanded="false" aria-controls="mega" style="">Équipes
+<svg data-dc-tpl="16" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path data-dc-tpl="17" d="m6 9 6 6 6-6"></path></svg></button><a data-dc-tpl="18" href="#next" class="nav-btn hide-sm">Matchs</a><a data-dc-tpl="19" href="Tournois.dc.html" class="nav-btn hide-sm">Tournois</a><a data-dc-tpl="20" href="#top" class="nav-btn hide-sm">News</a></nav><div data-dc-tpl="21" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end;"><a data-dc-tpl="22" href="#top" class="cham-s disp" style="display: inline-flex; align-items: center; min-height: 40px; background: rgb(255, 197, 61); color: rgb(26, 19, 0); font-size: 18px; padding: 0px 14px;">eSportly+</a><div data-dc-tpl="23" style="position: relative;"><button data-dc-tpl="24" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Langue du site : Français" style="font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgb(42, 50, 71); background: rgb(20, 26, 43); color: rgb(255, 255, 255); font-size: 13px; font-weight: 800;"><svg data-dc-tpl="25" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="2.2" aria-hidden="true"><circle data-dc-tpl="26" cx="12" cy="12" r="9"></circle><path data-dc-tpl="27" d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg><span class="sc-interp">FR</span>
+<svg data-dc-tpl="28" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path data-dc-tpl="29" d="m6 9 6 6 6-6"></path></svg></button></div><div data-dc-tpl="39" class="num" style="position: relative; display: flex; flex-direction: column; align-items: flex-end; border-left: 1px solid rgb(42, 50, 71); padding-left: 14px; min-width: 190px;"><span data-dc-tpl="40" class="disp" style="font-size: 28px; color: rgb(255, 255, 255);"><span class="sc-interp">18:29:05</span></span><span data-dc-tpl="41" style="font-size: 12px; font-weight: 600; color: rgb(169, 177, 194); text-transform: capitalize;"><span class="sc-interp">lundi 16 novembre 2026</span></span><label data-dc-tpl="42" for="tz" style="position: absolute; left: -9999px;"><span class="sc-interp">Fuseau horaire des horaires affichés</span></label></div></div></div></header><section data-dc-tpl="79" aria-label="Jeux" style="background: rgb(10, 14, 26); border-top: 1px solid rgba(255, 255, 255, 0.08); box-shadow: rgb(255, 197, 61) 0px -1px 0px inset;"><div data-dc-tpl="80" class="wrap" style="padding-top: 12px; padding-bottom: 12px;"><div data-dc-tpl="81" class="g-strip"><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="League of Legends" style="--gc: #0E3B4F;"><img data-dc-tpl="84" src="/_blob/b921740434ebb55c0a8a74b6a13ec74c" alt="" class="gtile-logo"><span data-dc-tpl="86" class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 999px;"><span data-dc-tpl="87" class="dot" style="width: 5px; height: 5px; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">LoL</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Counter-Strike 2" style="--gc: #4A3A12;"><img data-dc-tpl="84" src="/_blob/280199a9397bbe1da37b23e0909da989" alt="" class="gtile-logo"><span data-dc-tpl="86" class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 999px;"><span data-dc-tpl="87" class="dot" style="width: 5px; height: 5px; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">CS2</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Valorant" style="--gc: #6A1A28;"><img data-dc-tpl="84" src="/_blob/2ec5dff2161b6aa5bd2c130e765d49d0" alt="" class="gtile-logo"><span data-dc-tpl="86" class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 999px;"><span data-dc-tpl="87" class="dot" style="width: 5px; height: 5px; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Valo</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Rocket League" style="--gc: #123A6B;"><img data-dc-tpl="84" src="/_blob/1044e40ea678dc6e28bf11d916e7ec1b" alt="" class="gtile-logo"><span data-dc-tpl="86" class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 999px;"><span data-dc-tpl="87" class="dot" style="width: 5px; height: 5px; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">RL</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Dota 2" style="--gc: #5A1A12;"><img data-dc-tpl="84" src="/_blob/c3343751dff3b20aaf06fb0757307268" alt="" class="gtile-logo"><span data-dc-tpl="86" class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 999px;"><span data-dc-tpl="87" class="dot" style="width: 5px; height: 5px; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Dota 2</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Overwatch 2" style="--gc: #6A3C10;"><img data-dc-tpl="84" src="/_blob/b26ab30daad05e2098f9794e8e9a6664" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">OW2</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Rainbow Six Siege" style="--gc: #26303F;"><img data-dc-tpl="84" src="/_blob/e44c9f69a78a1985829457cfd0e6d717" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">R6</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Call of Duty" style="--gc: #23331F;"><img data-dc-tpl="84" src="/_blob/c1a516cd9c745818303e32f6bce04863" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">CoD</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Mobile Legends: Bang Bang" style="--gc: #33246A;"><img data-dc-tpl="84" src="/_blob/447cbce9015c8a95430695dd66fb93ee" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">MLBB</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="Honor of Kings" style="--gc: #5A340C;"><img data-dc-tpl="84" src="/_blob/ab1b1f7c1d8c68c2be6302f0c80d2f7e" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">HoK</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="EA Sports FC" style="--gc: #0F4434;"><img data-dc-tpl="84" src="/_blob/46e86e11dc804209eb64b093279708da" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">EA FC</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="StarCraft II" style="--gc: #132C55;"><img data-dc-tpl="84" src="/_blob/f08a140793f5a08d8e5e6ffc50a21678" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">SC2</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="StarCraft: Brood War" style="--gc: #3A342C;"><img data-dc-tpl="84" src="/_blob/c11894b9630ad84a0d8bab39611447de" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">BW</span></span></button><button data-dc-tpl="83" type="button" class="gtile" aria-current="false" title="LoL: Wild Rift" style="--gc: #124A50;"><img data-dc-tpl="84" src="/_blob/44e8e81d3035233b506bc9751c1bc1a2" alt="" class="gtile-logo"><span data-dc-tpl="88" style="position: relative; font-family: Rajdhani, &quot;Arial Narrow&quot;, sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.03em; color: rgb(255, 255, 255);"><span class="sc-interp">Wild Rift</span></span></button></div></div></section><main data-dc-tpl="89" id="top" class="wrap" style="padding-top: 24px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 22px;"><div data-dc-tpl="90" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;"><div data-dc-tpl="91" style="display: flex; flex-direction: column; gap: 6px;"><span data-dc-tpl="92" style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: rgb(72, 80, 96);"><span class="sc-interp">6 MATCHS EN DIRECT</span></span><h1 data-dc-tpl="93" class="disp" style="margin: 0px; font-size: 48px;"><span class="sc-interp">Tous les lives</span></h1></div><div data-dc-tpl="94" style="display: flex; gap: 8px; flex-wrap: wrap;"><button data-dc-tpl="95" type="button" class="btn" aria-pressed="false" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230);">Sans spoiler</button></div></div><div data-dc-tpl="96" class="g-split"><div data-dc-tpl="97" style="display: flex; flex-direction: column; gap: 16px; min-width: 0px;"><article data-dc-tpl="99" style="border: 1px solid rgb(213, 218, 230); border-radius: 24px; overflow: hidden; background: rgb(255, 255, 255);"><div data-dc-tpl="100" style="position: relative; aspect-ratio: 16 / 9; background: rgb(10, 14, 26); overflow: hidden;"><div data-dc-tpl="102" aria-hidden="true" style="position: absolute; inset: 0px; background: repeating-linear-gradient(135deg, rgb(14, 20, 36) 0px, rgb(14, 20, 36) 14px, rgb(10, 14, 26) 14px, rgb(10, 14, 26) 28px);"></div><div data-dc-tpl="103" style="position: absolute; inset: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;"><button data-dc-tpl="104" type="button" aria-label="Lancer le live" style="width: 92px; height: 92px; border-radius: 50%; border: 0px; background: rgb(255, 197, 61); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: rgba(255, 197, 61, 0.18) 0px 0px 0px 10px;"><svg data-dc-tpl="105" width="36" height="36" viewBox="0 0 24 24" fill="#1A1300" aria-hidden="true"><path data-dc-tpl="106" d="M8 5v14l11-7z"></path></svg></button><span data-dc-tpl="107" class="disp" style="font-size: 24px; color: rgb(255, 255, 255);"><span class="sc-interp">Karmine Corp</span> – <span class="sc-interp">G2 Esports</span></span><span data-dc-tpl="108" style="font-size: 13px; font-weight: 600; color: rgb(169, 177, 194);">Regarde ici, sans changer de page</span></div><span data-dc-tpl="109" class="cham-s disp" style="position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 8px; background: rgb(212, 31, 52); color: rgb(255, 255, 255); font-size: 18px; padding: 6px 12px;"><span data-dc-tpl="110" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(255, 255, 255);"></span>LIVE</span><span data-dc-tpl="111" class="num" style="position: absolute; top: 18px; right: 16px; font-size: 13px; font-weight: 700; color: rgb(255, 255, 255); background: rgba(10, 14, 26, 0.7); padding: 6px 12px; border-radius: 999px;"><span class="sc-interp">286 k</span> spectateurs · <span class="sc-interp">Twitch</span></span></div><div data-dc-tpl="131" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto minmax(0px, 1fr); align-items: center; gap: 16px; padding: 22px 24px; background: linear-gradient(105deg, rgb(91, 33, 182) 0px, rgb(91, 33, 182) 50%, rgb(10, 90, 59) 50%, rgb(10, 90, 59) 100%);"><button data-dc-tpl="132" type="button" style="font-family: inherit; cursor: pointer; border: 0px; background: transparent; display: flex; align-items: center; gap: 14px; min-height: 44px; color: rgb(255, 255, 255); text-align: left;"><span data-dc-tpl="133" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; background: rgb(255, 255, 255); color: rgb(91, 33, 182); box-shadow: rgba(10, 14, 26, 0.25) 0px 2px 8px;"><span class="sc-interp">KC</span></span><span data-dc-tpl="134" style="display: flex; flex-direction: column; gap: 4px;"><span data-dc-tpl="135" class="disp" style="font-size: 22px;"><span class="sc-interp">Karmine Corp</span></span><span data-dc-tpl="136" style="font-size: 12px; font-weight: 700; color: rgba(255, 255, 255, 0.8);">Voir l'équipe</span></span></button><div data-dc-tpl="137" style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span data-dc-tpl="138" class="disp num score" style="font-size: 56px; display: flex; gap: 14px; color: rgb(255, 255, 255);"><span data-dc-tpl="139"><span class="sc-interp">0</span></span><span data-dc-tpl="140" style="color: rgba(255, 255, 255, 0.6);">–</span><span data-dc-tpl="141"><span class="sc-interp">1</span></span></span><span data-dc-tpl="142" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; color: rgb(255, 255, 255); background: rgb(212, 31, 52); border-radius: 999px; padding: 4px 10px;"><span data-dc-tpl="143" style="width: 6px; height: 6px; border-radius: 50%; background: rgb(255, 255, 255);"></span>Live</span><span data-dc-tpl="144" style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.85);"><span class="sc-interp">Game 2 · 24:12</span></span></div><button data-dc-tpl="145" type="button" style="font-family: inherit; cursor: pointer; border: 0px; background: transparent; display: flex; align-items: center; justify-content: flex-end; gap: 14px; min-height: 44px; color: rgb(255, 255, 255); text-align: right;"><span data-dc-tpl="146" style="display: flex; flex-direction: column; gap: 4px; align-items: flex-end;"><span data-dc-tpl="147" class="disp" style="font-size: 22px;"><span class="sc-interp">G2 Esports</span></span><span data-dc-tpl="148" style="font-size: 12px; font-weight: 700; color: rgba(255, 255, 255, 0.8);">Voir l'équipe</span></span><span data-dc-tpl="149" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; background: rgb(255, 255, 255); color: rgb(10, 90, 59); box-shadow: rgba(10, 14, 26, 0.25) 0px 2px 8px;"><span class="sc-interp">GE</span></span></button></div><div data-dc-tpl="150" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 24px; background: rgb(246, 247, 251); border-top: 1px solid rgb(213, 218, 230);"><span data-dc-tpl="151" style="font-size: 14px; font-weight: 700;"><span data-dc-tpl="152" style="color: rgb(122, 86, 0);"><span class="sc-interp">League of Legends</span></span> · <span class="sc-interp">LEC</span> · <span data-dc-tpl="153" style="color: rgb(72, 80, 96); font-weight: 600;"><span class="sc-interp">Playoffs · BO5</span></span></span><div data-dc-tpl="154" style="display: flex; gap: 8px; flex-wrap: wrap;"><button data-dc-tpl="155" type="button" class="btn" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230);">Stats en direct</button><button data-dc-tpl="156" type="button" class="btn cham" style="background: rgb(255, 197, 61); color: rgb(26, 19, 0);">M'alerter</button></div></div></article></div><aside data-dc-tpl="170" aria-labelledby="others" style="display: flex; flex-direction: column; gap: 10px; min-width: 0px;"><div data-dc-tpl="171" style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px;"><h2 data-dc-tpl="172" id="others" class="disp" style="margin: 0px; font-size: 26px;"><span class="sc-interp">Les autres lives</span></h2><span data-dc-tpl="173" class="num" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; color: rgb(181, 23, 42);"><span data-dc-tpl="174" class="dot"></span><span class="sc-interp">5 en live</span></span></div><div data-dc-tpl="178" style="display: flex; flex-direction: column; gap: 8px;"><button data-dc-tpl="180" type="button" class="card-btn"><span data-dc-tpl="181" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: rgb(72, 80, 96); gap: 8px;"><span data-dc-tpl="182"><span data-dc-tpl="183" style="color: rgb(122, 86, 0);"><span class="sc-interp">CS2</span></span> · <span class="sc-interp">Major CS2</span></span><span data-dc-tpl="184" style="display: inline-flex; align-items: center; gap: 6px; color: rgb(181, 23, 42);"><span data-dc-tpl="185" class="dot"></span><span class="sc-interp">Map 3</span></span></span><span data-dc-tpl="186" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 8px 10px; align-items: center;"><span data-dc-tpl="187" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="188" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(236, 239, 246); color: rgb(14, 20, 36); box-shadow: rgb(213, 218, 230) 0px 0px 0px 1px inset;"><span class="sc-interp">TV</span></span><span class="sc-interp">Team Vitality</span></span><span data-dc-tpl="189" class="disp num" style="font-size: 24px;"><span class="sc-interp">1</span></span><span data-dc-tpl="190" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="191" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(58, 66, 80); color: rgb(255, 255, 255);"><span class="sc-interp">NV</span></span><span class="sc-interp">Natus Vincere</span></span><span data-dc-tpl="192" class="disp num" style="font-size: 24px;"><span class="sc-interp">1</span></span></span><span data-dc-tpl="193" class="num" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">412 k</span> spectateurs · Regarder</span></button><button data-dc-tpl="180" type="button" class="card-btn"><span data-dc-tpl="181" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: rgb(72, 80, 96); gap: 8px;"><span data-dc-tpl="182"><span data-dc-tpl="183" style="color: rgb(122, 86, 0);"><span class="sc-interp">Valo</span></span> · <span class="sc-interp">VCT EMEA</span></span><span data-dc-tpl="184" style="display: inline-flex; align-items: center; gap: 6px; color: rgb(181, 23, 42);"><span data-dc-tpl="185" class="dot"></span><span class="sc-interp">Map 2</span></span></span><span data-dc-tpl="186" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 8px 10px; align-items: center;"><span data-dc-tpl="187" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="188" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(30, 58, 138); color: rgb(255, 255, 255);"><span class="sc-interp">HE</span></span><span class="sc-interp">Heretics</span></span><span data-dc-tpl="189" class="disp num" style="font-size: 24px;"><span class="sc-interp">1</span></span><span data-dc-tpl="190" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="191" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(10, 14, 26); color: rgb(255, 197, 61);"><span class="sc-interp">FN</span></span><span class="sc-interp">Fnatic</span></span><span data-dc-tpl="192" class="disp num" style="font-size: 24px;"><span class="sc-interp">0</span></span></span><span data-dc-tpl="193" class="num" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">154 k</span> spectateurs · Regarder</span></button><button data-dc-tpl="180" type="button" class="card-btn"><span data-dc-tpl="181" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: rgb(72, 80, 96); gap: 8px;"><span data-dc-tpl="182"><span data-dc-tpl="183" style="color: rgb(122, 86, 0);"><span class="sc-interp">RL</span></span> · <span class="sc-interp">RLCS</span></span><span data-dc-tpl="184" style="display: inline-flex; align-items: center; gap: 6px; color: rgb(181, 23, 42);"><span data-dc-tpl="185" class="dot"></span><span class="sc-interp">Game 4</span></span></span><span data-dc-tpl="186" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 8px 10px; align-items: center;"><span data-dc-tpl="187" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="188" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(212, 31, 52); color: rgb(255, 255, 255);"><span class="sc-interp">KC</span></span><span class="sc-interp">Karmine Corp</span></span><span data-dc-tpl="189" class="disp num" style="font-size: 24px;"><span class="sc-interp">2</span></span><span data-dc-tpl="190" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="191" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(236, 239, 246); color: rgb(14, 20, 36); box-shadow: rgb(213, 218, 230) 0px 0px 0px 1px inset;"><span class="sc-interp">GM</span></span><span class="sc-interp">Gentle Mates</span></span><span data-dc-tpl="192" class="disp num" style="font-size: 24px;"><span class="sc-interp">1</span></span></span><span data-dc-tpl="193" class="num" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">61 k</span> spectateurs · Regarder</span></button><button data-dc-tpl="180" type="button" class="card-btn"><span data-dc-tpl="181" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: rgb(72, 80, 96); gap: 8px;"><span data-dc-tpl="182"><span data-dc-tpl="183" style="color: rgb(122, 86, 0);"><span class="sc-interp">LoL</span></span> · <span class="sc-interp">LCK</span></span><span data-dc-tpl="184" style="display: inline-flex; align-items: center; gap: 6px; color: rgb(181, 23, 42);"><span data-dc-tpl="185" class="dot"></span><span class="sc-interp">12:40</span></span></span><span data-dc-tpl="186" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 8px 10px; align-items: center;"><span data-dc-tpl="187" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="188" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(212, 31, 52); color: rgb(255, 255, 255);"><span class="sc-interp">T1</span></span><span class="sc-interp">T1</span></span><span data-dc-tpl="189" class="disp num" style="font-size: 24px;"><span class="sc-interp">1</span></span><span data-dc-tpl="190" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="191" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(91, 33, 182); color: rgb(255, 255, 255);"><span class="sc-interp">KR</span></span><span class="sc-interp">KT Rolster</span></span><span data-dc-tpl="192" class="disp num" style="font-size: 24px;"><span class="sc-interp">0</span></span></span><span data-dc-tpl="193" class="num" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">520 k</span> spectateurs · Regarder</span></button><button data-dc-tpl="180" type="button" class="card-btn"><span data-dc-tpl="181" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: rgb(72, 80, 96); gap: 8px;"><span data-dc-tpl="182"><span data-dc-tpl="183" style="color: rgb(122, 86, 0);"><span class="sc-interp">Dota 2</span></span> · <span class="sc-interp">DreamLeague</span></span><span data-dc-tpl="184" style="display: inline-flex; align-items: center; gap: 6px; color: rgb(181, 23, 42);"><span data-dc-tpl="185" class="dot"></span><span class="sc-interp">31:40</span></span></span><span data-dc-tpl="186" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 8px 10px; align-items: center;"><span data-dc-tpl="187" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="188" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(236, 239, 246); color: rgb(14, 20, 36); box-shadow: rgb(213, 218, 230) 0px 0px 0px 1px inset;"><span class="sc-interp">TL</span></span><span class="sc-interp">Team Liquid</span></span><span data-dc-tpl="189" class="disp num" style="font-size: 24px;"><span class="sc-interp">0</span></span><span data-dc-tpl="190" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;"><span data-dc-tpl="191" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; background: rgb(10, 90, 59); color: rgb(255, 255, 255);"><span class="sc-interp">XG</span></span><span class="sc-interp">Xtreme Gaming</span></span><span data-dc-tpl="192" class="disp num" style="font-size: 24px;"><span class="sc-interp">0</span></span></span><span data-dc-tpl="193" class="num" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">98 k</span> spectateurs · Regarder</span></button></div></aside></div><section data-dc-tpl="194" id="next" aria-labelledby="next-t" style="display: flex; flex-direction: column; gap: 12px;"><div data-dc-tpl="195" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;"><h2 data-dc-tpl="196" id="next-t" class="disp" style="margin: 0px; font-size: 28px;">Ensuite aujourd'hui</h2><span data-dc-tpl="197" style="font-size: 12px; font-weight: 700; color: rgb(72, 80, 96);"><span class="sc-interp">Horaires : Heure de Paris</span></span></div><div data-dc-tpl="198" style="border: 1px solid rgb(213, 218, 230); border-radius: 20px; overflow: hidden;"><div data-dc-tpl="200" style="display: grid; grid-template-columns: 84px minmax(0px, 1fr) auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="201" style="display: flex; flex-direction: column; gap: 2px;"><span data-dc-tpl="202" class="disp num" style="font-size: 22px;"><span class="sc-interp">17:00</span></span></span><span data-dc-tpl="205" style="display: flex; flex-direction: column; gap: 3px;"><span data-dc-tpl="206" style="font-weight: 700; font-size: 15px;"><span class="sc-interp">Team BDS</span> <span data-dc-tpl="207" style="color: rgb(72, 80, 96); font-weight: 600;">vs</span> <span class="sc-interp">Gentle Mates</span></span><span data-dc-tpl="208" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Rocket League</span> · <span class="sc-interp">RLCS</span></span></span><button data-dc-tpl="209" type="button" class="btn" aria-label="M'alerter pour Team BDS contre Gentle Mates" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230); padding: 0px 12px;"><svg data-dc-tpl="210" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-tpl="211" d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path data-dc-tpl="212" d="M10 21a2 2 0 0 0 4 0"></path></svg></button></div><div data-dc-tpl="200" style="display: grid; grid-template-columns: 84px minmax(0px, 1fr) auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="201" style="display: flex; flex-direction: column; gap: 2px;"><span data-dc-tpl="202" class="disp num" style="font-size: 22px;"><span class="sc-interp">18:00</span></span></span><span data-dc-tpl="205" style="display: flex; flex-direction: column; gap: 3px;"><span data-dc-tpl="206" style="font-weight: 700; font-size: 15px;"><span class="sc-interp">Fnatic</span> <span data-dc-tpl="207" style="color: rgb(72, 80, 96); font-weight: 600;">vs</span> <span class="sc-interp">G2 Esports</span></span><span data-dc-tpl="208" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">League of Legends</span> · <span class="sc-interp">LEC</span></span></span><button data-dc-tpl="209" type="button" class="btn" aria-label="M'alerter pour Fnatic contre G2 Esports" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230); padding: 0px 12px;"><svg data-dc-tpl="210" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-tpl="211" d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path data-dc-tpl="212" d="M10 21a2 2 0 0 0 4 0"></path></svg></button></div><div data-dc-tpl="200" style="display: grid; grid-template-columns: 84px minmax(0px, 1fr) auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="201" style="display: flex; flex-direction: column; gap: 2px;"><span data-dc-tpl="202" class="disp num" style="font-size: 22px;"><span class="sc-interp">20:00</span></span></span><span data-dc-tpl="205" style="display: flex; flex-direction: column; gap: 3px;"><span data-dc-tpl="206" style="font-weight: 700; font-size: 15px;"><span class="sc-interp">MOUZ</span> <span data-dc-tpl="207" style="color: rgb(72, 80, 96); font-weight: 600;">vs</span> <span class="sc-interp">Team Spirit</span></span><span data-dc-tpl="208" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Counter-Strike 2</span> · <span class="sc-interp">Major CS2</span></span></span><button data-dc-tpl="209" type="button" class="btn" aria-label="M'alerter pour MOUZ contre Team Spirit" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230); padding: 0px 12px;"><svg data-dc-tpl="210" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-tpl="211" d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path data-dc-tpl="212" d="M10 21a2 2 0 0 0 4 0"></path></svg></button></div><div data-dc-tpl="200" style="display: grid; grid-template-columns: 84px minmax(0px, 1fr) auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(236, 239, 246);"><span data-dc-tpl="201" style="display: flex; flex-direction: column; gap: 2px;"><span data-dc-tpl="202" class="disp num" style="font-size: 22px;"><span class="sc-interp">21:00</span></span></span><span data-dc-tpl="205" style="display: flex; flex-direction: column; gap: 3px;"><span data-dc-tpl="206" style="font-weight: 700; font-size: 15px;"><span class="sc-interp">Karmine Corp</span> <span data-dc-tpl="207" style="color: rgb(72, 80, 96); font-weight: 600;">vs</span> <span class="sc-interp">Heretics</span></span><span data-dc-tpl="208" style="font-size: 12px; font-weight: 600; color: rgb(72, 80, 96);"><span class="sc-interp">Valorant</span> · <span class="sc-interp">VCT EMEA</span></span></span><button data-dc-tpl="209" type="button" class="btn" aria-label="M'alerter pour Karmine Corp contre Heretics" style="background: rgb(255, 255, 255); color: rgb(14, 20, 36); border: 1px solid rgb(213, 218, 230); padding: 0px 12px;"><svg data-dc-tpl="210" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-dc-tpl="211" d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path data-dc-tpl="212" d="M10 21a2 2 0 0 0 4 0"></path></svg></button></div></div></section></main></div></div></div>
 
-<!-- HEADER -->
-<header style="background: #0A0E1A; color: #FFFFFF; position: relative; z-index: 3">
-<div class="wrap" style="display: flex; align-items: center; gap: 18px; min-height: 68px; flex-wrap: wrap">
-<a href="#top" sc-camel-on-click="{{goHome}}" aria-label="eSportly, tous les lives" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF">
-<svg width="36" height="36" sc-camel-view-box="0 0 512 512" aria-hidden="true"><path d="M256 22 L462 82 L462 250 C462 378 372 450 256 494 C140 450 50 378 50 250 L50 82 Z" fill="#0A0E1A" stroke="#FFC53D" stroke-width="22"></path><path d="M132 280 L244 280 L244 238 L216 210 L156 210 L128 238 L128 332 L156 360 L244 360" fill="none" stroke="#FFC53D" stroke-width="40"></path><path d="M380 160 L300 160 L268 192 L268 232 L300 260 L348 260 L380 292 L380 330 L348 362 L262 362" fill="none" stroke="#F4F6FF" stroke-width="42"></path><circle cx="420" cy="98" r="44" fill="#FFC53D" stroke="#0A0E1A" stroke-width="14"></circle><path d="M420 76 L420 104 M420 118 L420 122" stroke="#0A0E1A" stroke-width="14"></path></svg>
-<span class="disp" style="font-size: 28px">eSportly</span>
-</a>
-
-<nav aria-label="Menu principal" style="margin-left: auto; display: flex; align-items: center; flex-wrap: wrap">
-
-<button type="button" class="nav-btn" sc-camel-on-click="{{openTeams}}" aria-expanded="{{teamsOpen}}" aria-controls="mega" style="{{teamsBtnStyle}}">Équipes
-<svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
-<a href="#next" class="nav-btn hide-sm">Matchs</a>
-<a href="Tournois.dc.html" class="nav-btn hide-sm">Tournois</a>
-<a href="#top" class="nav-btn hide-sm">News</a>
-</nav>
-
-<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end">
-<a href="#top" class="cham-s disp" style="display: inline-flex; align-items: center; min-height: 40px; background: #FFC53D; color: #1A1300; font-size: 18px; padding: 0 14px">eSportly+</a>
-<div style="position: relative">
-<button type="button" sc-camel-on-click="{{toggleLang}}" aria-expanded="{{langOpenStr}}" aria-haspopup="listbox" aria-label="Langue du site : {{langName}}" style="font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid #2A3247; background: #141A2B; color: #FFFFFF; font-size: 13px; font-weight: 800">
-<svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>{{langCode}}
-<svg width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="#A9B1C2" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-</button>
-<sc-if value="{{langOpen}}" hint-placeholder-val="{{false}}">
-<div role="listbox" aria-label="Langue du site" style="position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 210px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 18px 40px rgba(10,14,26,.35); padding: 6px; display: flex; flex-direction: column; gap: 2px">
-<sc-for list="{{langOptions}}" as="lo" hint-placeholder-count="5">
-<button type="button" role="option" aria-selected="{{lo.sel}}" sc-camel-on-click="{{lo.pick}}" style="{{lo.style}}"><span style="{{lo.codeStyle}}">{{lo.code}}</span><span style="flex: 1">{{lo.label}}</span>
-<sc-if value="{{lo.on}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#7A5600" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
-</button>
-</sc-for>
-</div>
-</sc-if>
-</div>
-<div class="num" style="position: relative; display: flex; flex-direction: column; align-items: flex-end; border-left: 1px solid #2A3247; padding-left: 14px; min-width: 190px">
-<span class="disp" style="font-size: 28px; color: #FFFFFF">{{clock}}</span>
-<span style="font-size: 12px; font-weight: 600; color: #A9B1C2; text-transform: capitalize">{{date}}</span>
-<label for="tz" style="position: absolute; left: -9999px">{{tzA11y}}</label>
-
-</div>
-</div>
-</div>
-
-<!-- MEGA MENU -->
-<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-<div id="mega" style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; color: #0E1424; border-radius: 0 0 28px 28px; box-shadow: 0 24px 48px rgba(10,14,26,.25)">
-<div class="wrap" style="padding-top: 22px; padding-bottom: 26px; display: flex; flex-direction: column; gap: 18px">
-
-<sc-if value="{{gamesOpenBool}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; justify-content: space-between; align-items: baseline">
-<h2 class="disp" style="margin: 0; font-size: 28px">Les 14 jeux</h2>
-<span style="font-size: 13px; font-weight: 600; color: #485060">Un clic = les lives du jeu</span>
-</div>
-<div class="g-games">
-<sc-for list="{{games}}" as="g" hint-placeholder-count="14">
-<button type="button" class="tile" sc-camel-on-click="{{g.pick}}" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px">
-<span class="mbox" style="{{g.gcVar}}"><img src="{{g.logo}}" alt="" class="mlogo"></span>
-<span style="font-size: 14px; line-height: 1.2">{{g.name}}</span>
-<span style="{{g.liveStyle}}">{{g.liveTxt}}</span>
-</button>
-</sc-for>
-</div>
-</sc-if>
-
-<sc-if value="{{teamsOpenBool}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<h2 class="disp" style="margin: 0; font-size: 28px">Toutes les équipes</h2>
-<span style="font-size: 13px; font-weight: 600; color: #485060">{{teamTotal}} équipes · un clic = leur live</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #B5172A">EN LIVE MAINTENANT</span>
-<div class="g-teams">
-<sc-for list="{{teamsLive}}" as="t" hint-placeholder-count="10">
-<button type="button" class="tile" sc-camel-on-click="{{t.pick}}" style="border-color: #D41F34">
-<span style="{{t.mono}}">{{t.ini}}</span><span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{t.name}}</span><span class="dot"></span>
-</button>
-</sc-for>
-</div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #485060">DE A À Z</span>
-<div class="g-teams" style="max-height: 360px; overflow-y: auto; padding-right: 4px">
-<sc-for list="{{teamsAll}}" as="t" hint-placeholder-count="20">
-<button type="button" class="tile" sc-camel-on-click="{{t.pick}}">
-<span style="{{t.mono}}">{{t.ini}}</span><span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{t.name}}</span>
-</button>
-</sc-for>
-</div>
-</div>
-</sc-if>
-
-<button type="button" sc-camel-on-click="{{closeMenu}}" class="btn" style="align-self: flex-end; background: #ECEFF6; color: #0E1424">Fermer</button>
-</div>
-</div>
-</sc-if>
-</header>
-
-<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-<button type="button" aria-label="Fermer le menu" sc-camel-on-click="{{closeMenu}}" style="position: absolute; inset: 68px 0 0 0; border: 0; background: rgba(10,14,26,.45); z-index: 2; cursor: pointer"></button>
-</sc-if>
-
-<!-- BARRE DES JEUX : toujours visible, un clic = les lives du jeu -->
-<section aria-label="Jeux" style="background: #0A0E1A; border-top: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 -1px 0 #FFC53D">
-<div class="wrap" style="padding-top: 12px; padding-bottom: 12px">
-<div class="g-strip">
-<sc-for list="{{games}}" as="g" hint-placeholder-count="14">
-<button type="button" class="gtile" sc-camel-on-click="{{g.toggle}}" aria-current="{{g.current}}" title="{{g.name}}" aria-label="{{g.name}}, {{g.liveTxt}}" style="{{g.tileStyle}}">
-<img src="{{g.logo}}" alt="" class="gtile-logo">
-<sc-if value="{{g.hasLive}}" hint-placeholder-val="{{false}}">
-<span class="num" style="position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 4px; background: #D41F34; color: #FFFFFF; font-size: 10px; font-weight: 800; letter-spacing: .04em; padding: 2px 7px; border-radius: 999px"><span class="dot" style="width: 5px; height: 5px; background: #FFFFFF"></span>LIVE</span>
-</sc-if>
-<span style="{{g.nameStyle}}">{{g.short}}</span>
-</button>
-</sc-for>
-</div>
-</div>
-</section>
-
-<!-- CONTENT -->
-<main id="top" class="wrap" style="padding-top: 24px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 22px">
-
-<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #485060">{{kicker}}</span>
-<h1 class="disp" style="margin: 0; font-size: 48px">{{heading}}</h1>
-</div>
-<div style="display: flex; gap: 8px; flex-wrap: wrap">
-<button type="button" class="btn" sc-camel-on-click="{{toggleSpoil}}" aria-pressed="{{spoilOn}}" style="{{spoilStyle}}">Sans spoiler</button>
-</div>
-</div>
-
-<div class="g-split">
-<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
-<!-- FEATURED LIVE + PLAYER -->
-<sc-if value="{{hasLive}}" hint-placeholder-val="{{true}}">
-<article style="border: 1px solid #D5DAE6; border-radius: 24px; overflow: hidden; background: #FFFFFF">
-<div style="position: relative; aspect-ratio: 16 / 9; background: #0A0E1A; overflow: hidden">
-<sc-if value="{{notPlaying}}" hint-placeholder-val="{{true}}">
-<div aria-hidden="true" style="position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #0E1424 0 14px, #0A0E1A 14px 28px)"></div>
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px">
-<button type="button" sc-camel-on-click="{{play}}" aria-label="Lancer le live" style="width: 92px; height: 92px; border-radius: 50%; border: 0; background: #FFC53D; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 10px rgba(255,197,61,.18)">
-<svg width="36" height="36" sc-camel-view-box="0 0 24 24" fill="#1A1300" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-</button>
-<span class="disp" style="font-size: 24px; color: #FFFFFF">{{f.a.name}} – {{f.b.name}}</span>
-<span style="font-size: 13px; font-weight: 600; color: #A9B1C2">Regarde ici, sans changer de page</span>
-</div>
-<span class="cham-s disp" style="position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 8px; background: #D41F34; color: #FFFFFF; font-size: 18px; padding: 6px 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFFFFF"></span>LIVE</span>
-<span class="num" style="position: absolute; top: 18px; right: 16px; font-size: 13px; font-weight: 700; color: #FFFFFF; background: rgba(10,14,26,.7); padding: 6px 12px; border-radius: 999px">{{f.viewers}} spectateurs · {{f.stream}}</span>
-</sc-if>
-<sc-if value="{{playing}}" hint-placeholder-val="{{false}}">
-<div style="position: absolute; inset: 0; background: #141A2B; display: flex; align-items: center; justify-content: center; color: #6B7385; font-size: 12px; font-weight: 800; letter-spacing: .1em">IMAGE DU STREAM EN DIRECT</div>
-<span class="num disp" style="position: absolute; top: 14px; left: 14px; display: inline-flex; gap: 10px; background: rgba(10,14,26,.85); color: #FFFFFF; font-size: 18px; padding: 6px 12px"><span style="color: #FFC53D">{{f.a.ini}}</span>{{f.sa}} – {{f.sb}}<span style="color: #FFC53D">{{f.b.ini}}</span></span>
-<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px; display: flex; align-items: center; gap: 8px; background: linear-gradient(transparent, rgba(10,14,26,.9))">
-<button type="button" sc-camel-on-click="{{pause}}" aria-label="Mettre en pause" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"></path></svg></button>
-<button type="button" aria-label="Activer le son" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="m17 9 5 6M22 9l-5 6"></path></svg></button>
-<span class="disp" style="display: inline-flex; align-items: center; gap: 6px; background: #D41F34; color: #FFFFFF; font-size: 14px; padding: 3px 8px">LIVE</span>
-<span style="flex: 1"></span>
-<span style="font-size: 12px; font-weight: 700; color: #C3C9D6">{{f.stream}} · 1080p</span>
-<button type="button" aria-label="Plein écran" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg></button>
-</div>
-</sc-if>
-</div>
-
-<div style="{{f.split}}">
-<button type="button" sc-camel-on-click="{{f.pickA}}" style="font-family: inherit; cursor: pointer; border: 0; background: transparent; display: flex; align-items: center; gap: 14px; min-height: 44px; color: #FFFFFF; text-align: left">
-<span style="{{f.a.monoL}}">{{f.a.ini}}</span>
-<span style="display: flex; flex-direction: column; gap: 4px"><span class="disp" style="font-size: 22px">{{f.a.name}}</span><span style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,.8)">Voir l'équipe</span></span>
-</button>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
-<span class="disp num score" style="font-size: 56px; display: flex; gap: 14px; color: #FFFFFF"><span>{{f.sa}}</span><span style="color: rgba(255,255,255,.6)">–</span><span>{{f.sb}}</span></span>
-<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; color: #FFFFFF; background: #D41F34; border-radius: 999px; padding: 4px 10px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF"></span>Live</span>
-<span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85)">{{f.detail}}</span>
-</div>
-<button type="button" sc-camel-on-click="{{f.pickB}}" style="font-family: inherit; cursor: pointer; border: 0; background: transparent; display: flex; align-items: center; justify-content: flex-end; gap: 14px; min-height: 44px; color: #FFFFFF; text-align: right">
-<span style="display: flex; flex-direction: column; gap: 4px; align-items: flex-end"><span class="disp" style="font-size: 22px">{{f.b.name}}</span><span style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,.8)">Voir l'équipe</span></span>
-<span style="{{f.b.monoL}}">{{f.b.ini}}</span>
-</button>
-</div>
-
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 24px; background: #F6F7FB; border-top: 1px solid #D5DAE6">
-<span style="font-size: 14px; font-weight: 700"><span style="color: #7A5600">{{f.gameName}}</span> · {{f.event}} · <span style="color: #485060; font-weight: 600">{{f.stage}}</span></span>
-<div style="display: flex; gap: 8px; flex-wrap: wrap">
-<button type="button" class="btn" style="background: #FFFFFF; color: #0E1424; border: 1px solid #D5DAE6">Stats en direct</button>
-<button type="button" class="btn cham" style="background: #FFC53D; color: #1A1300">M'alerter</button>
-</div>
-</div>
-</article>
-</sc-if>
-
-<sc-if value="{{offline}}" hint-placeholder-val="{{false}}">
-<article style="border: 1px solid #D5DAE6; border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
-<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid #D5DAE6">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #485060">PAS EN LIVE</span>
-<span class="disp" style="font-size: 30px">Prochain match</span>
-<span style="font-size: 16px; color: #3A4250">[Adversaire] · [Compétition]</span>
-<span class="disp num" style="font-size: 44px">[Date · heure]</span>
-<button type="button" class="btn cham" style="background: #FFC53D; color: #1A1300; align-self: flex-start">M'alerter au début du match</button>
-</div>
-<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #485060">DERNIERS RÉSULTATS</span>
-<span style="font-size: 15px; color: #3A4250">[Résultat 1]</span>
-<span style="font-size: 15px; color: #3A4250">[Résultat 2]</span>
-<span style="font-size: 15px; color: #3A4250">[Résultat 3]</span>
-</div>
-</article>
-</sc-if>
-
-</div>
-
-<!-- AUTRES LIVES (colonne droite) -->
-<aside aria-labelledby="others" style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
-<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
-<h2 id="others" class="disp" style="margin: 0; font-size: 26px">{{othersTitle}}</h2>
-<span class="num" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; color: #B5172A"><span class="dot"></span>{{othersCount}}</span>
-</div>
-<sc-if value="{{noOthers}}" hint-placeholder-val="{{false}}">
-<p style="margin: 0; padding: 16px; border: 1px solid #D5DAE6; border-radius: 18px; font-size: 14px; color: #485060">Pas d'autre live pour l'instant.</p>
-</sc-if>
-<sc-if value="{{hasOthers}}" hint-placeholder-val="{{true}}">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<sc-for list="{{others}}" as="o" hint-placeholder-count="4">
-<button type="button" class="card-btn" sc-camel-on-click="{{o.pick}}">
-<span style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #485060; gap: 8px"><span><span style="color: #7A5600">{{o.gameShort}}</span> · {{o.event}}</span><span style="display: inline-flex; align-items: center; gap: 6px; color: #B5172A"><span class="dot"></span>{{o.short}}</span></span>
-<span style="display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 10px; align-items: center">
-<span style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px"><span style="{{o.a.mono}}">{{o.a.ini}}</span>{{o.a.name}}</span><span class="disp num" style="font-size: 24px">{{o.sa}}</span>
-<span style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px"><span style="{{o.b.mono}}">{{o.b.ini}}</span>{{o.b.name}}</span><span class="disp num" style="font-size: 24px">{{o.sb}}</span>
-</span>
-<span class="num" style="font-size: 12px; font-weight: 600; color: #485060">{{o.viewers}} spectateurs · Regarder</span>
-</button>
-</sc-for>
-</div>
-</sc-if>
-</aside>
-</div>
-
-<section id="next" aria-labelledby="next-t" style="display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<h2 id="next-t" class="disp" style="margin: 0; font-size: 28px">Ensuite aujourd'hui</h2>
-<span style="font-size: 12px; font-weight: 700; color: #485060">{{tzNote}}</span>
-</div>
-<div style="border: 1px solid #D5DAE6; border-radius: 20px; overflow: hidden">
-<sc-for list="{{next}}" as="n" hint-placeholder-count="4">
-<div style="display: grid; grid-template-columns: 84px minmax(0,1fr) auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #ECEFF6">
-<span style="display: flex; flex-direction: column; gap: 2px"><span class="disp num" style="font-size: 22px">{{n.time}}</span><sc-if value="{{n.hasZone}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 800; color: #7A5600">{{n.zone}}</span></sc-if></span>
-<span style="display: flex; flex-direction: column; gap: 3px"><span style="font-weight: 700; font-size: 15px">{{n.a}} <span style="color: #485060; font-weight: 600">vs</span> {{n.b}}</span><span style="font-size: 12px; font-weight: 600; color: #485060">{{n.game}} · {{n.event}}</span></span>
-<button type="button" class="btn" aria-label="M'alerter pour {{n.a}} contre {{n.b}}" style="background: #FFFFFF; color: #0E1424; border: 1px solid #D5DAE6; padding: 0 12px">
-<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 21a2 2 0 0 0 4 0"></path></svg>
-</button>
-</div>
-</sc-for>
-</div>
-</section>
-</main>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;openMenu&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;fermé&quot;,&quot;jeux&quot;,&quot;équipes&quot;],&quot;default&quot;:&quot;fermé&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1700}}">
-class Component extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { sel: { t: 'all' }, feat: null, now: Date.now(), favs: ['Karmine Corp', 'Team Vitality', 'T1'], spoil: false, playing: false, menu: undefined, lang: 'fr', tz: null };
-  }
-  componentDidMount() {
-    var self = this;
-    this.timer = setInterval(function () { self.setState({ now: Date.now() }); }, 1000);
-  }
-  componentWillUnmount() { clearInterval(this.timer); }
-  renderVals() {
-    var self = this;
-    var st = this.state;
-    // ===== Gestion globale des heures (à partager entre toutes les pages) =====
-    // Toutes les heures sont stockées en UTC ; l'affichage dépend de la langue et du fuseau choisi.
-    var TIME = (function () {
-      var lang = st.lang || 'fr', L = lang === 'fr';
-      var LN = { fr: 'Français', en: 'English', es: 'Español', de: 'Deutsch', pt: 'Português' };
-      var LBL = { fr: ['Heure de Paris', 'Mon heure locale', 'Heure du tournoi', 'Londres', 'Séoul'], en: ['Paris time', 'My local time', 'Event local time', 'London', 'Seoul'], es: ['Hora de París', 'Mi hora local', 'Hora del torneo', 'Londres', 'Seúl'], de: ['Pariser Zeit', 'Meine Ortszeit', 'Ortszeit des Turniers', 'London', 'Seoul'], pt: ['Hora de Paris', 'A minha hora local', 'Hora do torneio', 'Londres', 'Seul'] }[lang];
-      var NOTE = { fr: 'Horaires : ', en: 'Times: ', es: 'Horarios: ', de: 'Uhrzeiten: ', pt: 'Horários: ' }[lang];
-      var localTz = 'Europe/Paris';
-      try { localTz = Intl.DateTimeFormat().resolvedOptions().timeZone || localTz; } catch (e) {}
-      var def = L ? 'paris' : 'local';
-      var mode = st.tz || def;
-      var TZ = { paris: 'Europe/Paris', local: localTz, london: 'Europe/London', ny: 'America/New_York', la: 'America/Los_Angeles', sp: 'America/Sao_Paulo', seoul: 'Asia/Seoul', shanghai: 'Asia/Shanghai' };
-      var OPT = [['paris', LBL[0]], ['local', LBL[1]], ['event', LBL[2]], ['london', LBL[3]], ['ny', 'New York'], ['la', 'Los Angeles'], ['sp', 'São Paulo'], ['seoul', LBL[4]], ['shanghai', 'Shanghai']];
-      var loc = { fr: 'fr-FR', en: 'en-GB', es: 'es-ES', de: 'de-DE', pt: 'pt-PT' }[lang];
-      var clockTz = mode === 'event' ? TZ[def] : TZ[mode];
-      var tzOf = function (evTz) { return mode === 'event' ? (evTz || clockTz) : TZ[mode]; };
-      var now = new Date(st.now);
-      var label = OPT.filter(function (o) { return o[0] === mode; })[0][1];
-      return {
-        mode: mode, lang: lang,
-        clock: new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: clockTz }).format(now),
-        date: new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: clockTz }).format(now),
-        at: function (dayOff, hUTC, mUTC) { return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + dayOff, hUTC, mUTC || 0)); },
-        hm: function (date, evTz) { return new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: tzOf(evTz) }).format(date); },
-        wd: function (date, evTz) { return new Intl.DateTimeFormat(loc, { weekday: 'short', timeZone: tzOf(evTz) }).format(date); },
-        zone: function (date, evTz) {
-          if (mode === def) return '';
-          try { var p = new Intl.DateTimeFormat(loc, { timeZoneName: 'short', timeZone: tzOf(evTz) }).formatToParts(date).filter(function (x) { return x.type === 'timeZoneName'; })[0]; return p ? p.value : ''; } catch (e) { return ''; }
-        },
-        note: NOTE + label,
-        a11y: L ? 'Fuseau horaire des horaires affichés' : 'Time zone for displayed times',
-        tzOptions: OPT.map(function (o) { return { v: o[0], label: o[1] }; }),
-        onTz: function (ev) { self.setState({ tz: ev.target.value }); },
-        langCode: lang.toUpperCase(), langName: LN[lang], langOpen: !!st.langOpen, langOpenStr: st.langOpen ? 'true' : 'false',
-        toggleLang: function () { self.setState({ langOpen: !self.state.langOpen }); },
-        langOptions: ['fr', 'en', 'es', 'de', 'pt'].map(function (k) {
-          var on = lang === k;
-          return { code: k.toUpperCase(), label: LN[k], on: on, sel: on ? 'true' : 'false', pick: function () { self.setState({ lang: k, tz: null, langOpen: false }); },
-            style: 'font-family: inherit; cursor: pointer; border: 0; border-radius: 10px; min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 10px; text-align: left; font-size: 15px; font-weight: 700; color: #0E1424; background: ' + (on ? '#FFF4D6' : 'transparent'),
-            codeStyle: 'display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 24px; border-radius: 6px; font-size: 11px; font-weight: 800; ' + (on ? 'background: #FFC53D; color: #1A1300' : 'background: #0A0E1A; color: #FFFFFF') };
-        })
-      };
-    })();
-    var propMenu = { 'jeux': 'games', 'équipes': 'teams' }[this.props.openMenu] || null;
-    var menu = st.menu === undefined ? propMenu : st.menu;
-    var TEAMS = ['Team Liquid','FURIA','Falcons','FaZe Clan','Natus Vincere','T1','G2 Esports','LOS','GamerLegion','Yakult Brothers','Karmine Corp','Cloud9','100 Thieves','9z','Aurora','Black Dragons e-Sports','BNK FEARX','Crazy Raccoon','Dallas Fuel','DarkZero Esports','Disguised','EDward Gaming','Five Fears','Fluxo W7M','FlyQuest','Fnatic','For Fun Esports','FUT Esports','Geekay Esports','Gentle Mates','Global Esports','HANJIN BRION','Heretics','Imperial Esports','INTZ','JD Gaming','KT Rolster','Legacy','Level UP','LGD Gaming','LOUD','Lucky Five','LYON','M80','Manchester City Esports','MIBR','MOUZ','MVK Esports','Ninjas in Pyjamas','Nongshim RedForce','NRG','NTMR','OG','Outlast','Paper Rex','PARIVISION','R8 Esports','Rebels Gaming','Shifters','Shopify Rebellion','Spacestation Gaming','Team Spirit','Team Nemesis','Team Peps','Team Secret','Team Vitality','Team WE','Team Yandex','The Kafe','TSM','Twisted Minds','TYLOO','VARREL','Virtus.pro','Weibo Gaming','Wildcard','XLG Gaming','Xtreme Gaming'];
-    var GAMES = [['lol','League of Legends','LoL','LOL'],['cs2','Counter-Strike 2','CS2','CS2'],['valo','Valorant','Valo','VAL'],['rl','Rocket League','RL','RL'],['dota','Dota 2','Dota 2','D2'],['ow','Overwatch 2','OW2','OW2'],['r6','Rainbow Six Siege','R6','R6'],['cod','Call of Duty','CoD','COD'],['mlbb','Mobile Legends: Bang Bang','MLBB','MLBB'],['hok','Honor of Kings','HoK','HOK'],['fc','EA Sports FC','EA FC','FC'],['sc2','StarCraft II','SC2','SC2'],['bw','StarCraft: Brood War','BW','BW'],['wr','LoL: Wild Rift','Wild Rift','WR']];
-    var GCOL = { lol: '#0E3B4F', cs2: '#4A3A12', valo: '#6A1A28', rl: '#123A6B', dota: '#5A1A12', ow: '#6A3C10', r6: '#26303F', cod: '#23331F', mlbb: '#33246A', hok: '#5A340C', fc: '#0F4434', sc2: '#132C55', bw: '#3A342C', wr: '#124A50' };
-    var GLOGO = {
-      lol: '/_blob/b921740434ebb55c0a8a74b6a13ec74c', cs2: '/_blob/280199a9397bbe1da37b23e0909da989', valo: '/_blob/2ec5dff2161b6aa5bd2c130e765d49d0',
-      rl: '/_blob/1044e40ea678dc6e28bf11d916e7ec1b', dota: '/_blob/c3343751dff3b20aaf06fb0757307268', ow: '/_blob/b26ab30daad05e2098f9794e8e9a6664',
-      r6: '/_blob/e44c9f69a78a1985829457cfd0e6d717', cod: '/_blob/c1a516cd9c745818303e32f6bce04863', mlbb: '/_blob/447cbce9015c8a95430695dd66fb93ee',
-      hok: '/_blob/ab1b1f7c1d8c68c2be6302f0c80d2f7e', fc: '/_blob/46e86e11dc804209eb64b093279708da', sc2: '/_blob/f08a140793f5a08d8e5e6ffc50a21678',
-      bw: '/_blob/c11894b9630ad84a0d8bab39611447de', wr: '/_blob/44e8e81d3035233b506bc9751c1bc1a2'
-    };
-    var gname = {}, gshort = {};
-    GAMES.forEach(function (g) { gname[g[0]] = g[1]; gshort[g[0]] = g[2]; });
-    var LIVE = [
-      { id: 'l1', g: 'lol', a: 'Karmine Corp', b: 'G2 Esports', sa: 0, sb: 1, detail: 'Game 2 · 24:12', short: '24:12', event: 'LEC', stage: 'Playoffs · BO5', viewers: '286 k', stream: 'Twitch' },
-      { id: 'l2', g: 'cs2', a: 'Team Vitality', b: 'Natus Vincere', sa: 1, sb: 1, detail: 'Map 3 · Inferno · 9–7', short: 'Map 3', event: 'Major CS2', stage: 'Demi-finale · BO3', viewers: '412 k', stream: 'Twitch' },
-      { id: 'l3', g: 'valo', a: 'Heretics', b: 'Fnatic', sa: 1, sb: 0, detail: 'Map 2 · Ascent · 8–5', short: 'Map 2', event: 'VCT EMEA', stage: 'Upper final · BO3', viewers: '154 k', stream: 'YouTube' },
-      { id: 'l4', g: 'rl', a: 'Karmine Corp', b: 'Gentle Mates', sa: 2, sb: 1, detail: 'Game 4 · 3:21 restantes', short: 'Game 4', event: 'RLCS', stage: 'Quart · BO7', viewers: '61 k', stream: 'Twitch' },
-      { id: 'l5', g: 'lol', a: 'T1', b: 'KT Rolster', sa: 1, sb: 0, detail: 'Game 2 · 12:40', short: '12:40', event: 'LCK', stage: 'Saison régulière · BO3', viewers: '520 k', stream: 'YouTube' },
-      { id: 'l6', g: 'dota', a: 'Team Liquid', b: 'Xtreme Gaming', sa: 0, sb: 0, detail: 'Game 1 · 31:40', short: '31:40', event: 'DreamLeague', stage: 'Groupes · BO2', viewers: '98 k', stream: 'Twitch' }
-    ];
-    var PAL = [['#0A0E1A','#FFC53D'],['#FFC53D','#1A1300'],['#1E3A8A','#FFFFFF'],['#D41F34','#FFFFFF'],['#0A5A3B','#FFFFFF'],['#3A4250','#FFFFFF'],['#ECEFF6','#0E1424'],['#5B21B6','#FFFFFF']];
-    function ini(n) { var w = n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').filter(Boolean); return (w.length > 1 ? w[0][0] + w[1][0] : n.slice(0, 2)).toUpperCase(); }
-    function pal(n) { var h = 0; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) % 997; return PAL[h % PAL.length]; }
-    var DARK = ['#0F5E63', '#A3161F', '#1E3A8A', '#0A5A3B', '#5B21B6', '#7A3E00', '#0A0E1A'];
-    function dark(n) { var h = 0; for (var i = 0; i < n.length; i++) h = (h * 17 + n.charCodeAt(i)) % 991; return DARK[h % DARK.length]; }
-    function logoL(n) { return 'flex: 0 0 auto; width: 56px; height: 56px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; background: #FFFFFF; color: ' + dark(n) + '; box-shadow: 0 2px 8px rgba(10,14,26,.25)'; }
-    function mono(n, s) { var p = pal(n); return 'flex: 0 0 auto; width: ' + s + 'px; height: ' + s + 'px; border-radius: ' + Math.round(s * 0.28) + 'px; display: inline-flex; align-items: center; justify-content: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: ' + Math.round(s * 0.42) + 'px; background: ' + p[0] + '; color: ' + p[1] + (p[0] === '#ECEFF6' ? '; box-shadow: inset 0 0 0 1px #D5DAE6' : ''); }
-    function team(n) { return { name: n, ini: ini(n), mono: mono(n, 28), monoL: logoL(n) }; }
-
-    var liveOf = {};
-    LIVE.forEach(function (m) { liveOf[m.a] = 1; liveOf[m.b] = 1; });
-    var sel = st.sel;
-    var pickTeam = function (n) { return function () { self.setState({ sel: { t: 'team', id: n }, feat: null, menu: null, playing: false }); }; };
-    var pickGame = function (k) { return function () { self.setState({ sel: { t: 'game', id: k }, feat: null, menu: null, playing: false }); }; };
-    var shown = LIVE.filter(function (m) {
-      if (sel.t === 'game') return m.g === sel.id;
-      if (sel.t === 'team') return m.a === sel.id || m.b === sel.id;
-      return true;
-    });
-    var featRaw = shown.find(function (m) { return m.id === st.feat; }) || shown[0];
-    var sp = st.spoil;
-    var f = featRaw ? {
-      a: team(featRaw.a), b: team(featRaw.b), sa: sp ? '–' : featRaw.sa, sb: sp ? '–' : featRaw.sb,
-      detail: sp ? 'Score masqué' : featRaw.detail, gameName: gname[featRaw.g], event: featRaw.event, stage: featRaw.stage,
-      viewers: featRaw.viewers, stream: featRaw.stream, pickA: pickTeam(featRaw.a), pickB: pickTeam(featRaw.b),
-      split: 'display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 16px; padding: 22px 24px; background: linear-gradient(105deg, ' + dark(featRaw.a) + ' 0 50%, ' + (dark(featRaw.b) === dark(featRaw.a) ? '#0A0E1A' : dark(featRaw.b)) + ' 50% 100%)'
-    } : {};
-    var othersSrc = (sel.t === 'all' ? LIVE : (shown.length > 1 ? shown : LIVE)).filter(function (m) { return !featRaw || m.id !== featRaw.id; });
-    var others = othersSrc.map(function (m) {
-      return { gameShort: gshort[m.g], event: m.event, short: m.short, a: team(m.a), b: team(m.b), sa: sp ? '–' : m.sa, sb: sp ? '–' : m.sb, viewers: m.viewers,
-        pick: function () { var inShown = shown.some(function (x) { return x.id === m.id; }); self.setState({ feat: m.id, playing: false, sel: inShown ? sel : { t: 'all' } }); } };
-    });
-
-    var chipBase = 'flex: 0 0 auto; font-family: inherit; cursor: pointer; border-radius: 999px; min-height: 44px; padding: 0 14px 0 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; ';
-    var chipOn = 'background: #0A0E1A; color: #FFFFFF; border: 1px solid #0A0E1A';
-    var chipOff = 'background: #FFFFFF; color: #0E1424; border: 1px solid #D5DAE6';
-    var favs = st.favs.map(function (n) {
-      var cur = sel.t === 'team' && sel.id === n;
-      return { name: n, ini: ini(n), mono: mono(n, 24), live: !!liveOf[n], liveColor: cur ? '#FF8A96' : '#B5172A', current: cur ? 'page' : 'false', style: chipBase + (cur ? chipOn : chipOff), pick: pickTeam(n) };
-    });
-    var games = GAMES.map(function (g) {
-      var n = LIVE.filter(function (m) { return m.g === g[0]; }).length; var cur = sel.t === 'game' && sel.id === g[0];
-      return { name: g[1], short: g[2], abbr: g[3], n: n, hasLive: n > 0, current: cur ? 'page' : 'false', pick: pickGame(g[0]),
-        chip: chipBase + (cur ? chipOn : chipOff),
-        badge: 'display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 10px; background: #0A0E1A; color: #FFC53D; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 16px',
-        liveTxt: n > 0 ? 'En live' : 'Pas de live', liveStyle: 'font-size: 12px; font-weight: 800; color: ' + (n > 0 ? (cur ? '#FF8A96' : '#B5172A') : (cur ? '#A9B1C2' : '#485060')),
-        liveShort: n > 0 ? n + ' live' : '—',
-        logo: GLOGO[g[0]],
-        mbox: 'display: flex; align-items: center; width: 100%; box-sizing: border-box; padding: 8px 10px; border-radius: 12px; background: ' + (GCOL[g[0]] || '#1F2937'),
-        toggle: cur ? function () { self.setState({ sel: { t: 'all' }, feat: null, playing: false }); } : pickGame(g[0]),
-        gcVar: '--gc: ' + (GCOL[g[0]] || '#1F2937'),
-        tileStyle: '--gc: ' + (GCOL[g[0]] || '#1F2937'),
-        nameStyle: "position: relative; font-family: 'Rajdhani', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 16px; line-height: 1; white-space: nowrap; text-transform: uppercase; letter-spacing: .03em; color: " + (cur ? '#FFC53D' : '#FFFFFF'),
-        badgeStyle: 'display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 30px; padding: 0 6px; box-sizing: border-box; border-radius: 10px; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 16px; ' + (cur ? 'background: #FFC53D; color: #1A1300' : 'background: #0A0E1A; color: #FFC53D') };
-    });
-    function teamItem(n) { return { name: n, ini: ini(n), mono: mono(n, 26), pick: pickTeam(n) }; }
-    var alpha = TEAMS.slice().sort(function (x, y) { return x.localeCompare(y); });
-    var teamsLive = alpha.filter(function (n) { return liveOf[n]; }).map(teamItem);
-    var teamsAll = alpha.map(teamItem);
-
-    var d = new Date(st.now);
-    var pad = function (x) { return (x < 10 ? '0' : '') + x; };
-    var heading = 'Tous les lives', kicker = LIVE.length + ' MATCHS EN DIRECT';
-    if (sel.t === 'game') { heading = gname[sel.id]; kicker = shown.length ? shown.length + ' EN DIRECT SUR CE JEU' : 'AUCUN LIVE SUR CE JEU'; }
-    if (sel.t === 'team') { heading = sel.id; kicker = shown.length ? 'EN LIVE MAINTENANT' : 'ÉQUIPE · PAS EN LIVE'; }
-    var isFav = sel.t === 'team' && st.favs.indexOf(sel.id) >= 0;
-    var navOn = 'color: #FFC53D; box-shadow: inset 0 -3px 0 #FFC53D';
-
-    return {
-      goHome: function () { self.setState({ sel: { t: 'all' }, feat: null, menu: null }); },
-      homeCurrent: sel.t === 'all' ? 'page' : 'false', homeStyle: chipBase + (sel.t === 'all' ? chipOn : chipOff),
-      homeTile: sel.t === 'all' ? 'background: #0A0E1A; border-color: #0A0E1A; color: #FFFFFF' : '',
-      homeBadge: 'display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 30px; padding: 0 6px; box-sizing: border-box; border-radius: 10px; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 16px; ' + (sel.t === 'all' ? 'background: #FFC53D; color: #1A1300' : 'background: #0A0E1A; color: #FFC53D'),
-      homeLiveColor: sel.t === 'all' ? '#FF8A96' : '#B5172A',
-      openGames: function () { self.setState({ menu: menu === 'games' ? null : 'games' }); },
-      openTeams: function () { self.setState({ menu: menu === 'teams' ? null : 'teams' }); },
-      closeMenu: function () { self.setState({ menu: null }); },
-      menuOpen: !!menu, gamesOpenBool: menu === 'games', teamsOpenBool: menu === 'teams',
-      gamesOpen: menu === 'games' ? 'true' : 'false', teamsOpen: menu === 'teams' ? 'true' : 'false',
-      gamesBtnStyle: menu === 'games' ? navOn : '', teamsBtnStyle: menu === 'teams' ? navOn : '',
-      liveTotal: LIVE.length,
-      clock: TIME.clock, date: TIME.date, langCode: TIME.langCode, langName: TIME.langName, langOpen: TIME.langOpen, langOpenStr: TIME.langOpenStr, toggleLang: TIME.toggleLang, langOptions: TIME.langOptions, tzOptions: TIME.tzOptions, tzMode: TIME.mode, onTz: TIME.onTz, tzA11y: TIME.a11y, tzNote: TIME.note,
-      favs: favs, games: games, teamsLive: teamsLive, teamsAll: teamsAll, teamTotal: TEAMS.length,
-      kicker: kicker, heading: heading, isTeam: sel.t === 'team', favOn: isFav ? 'true' : 'false',
-      favLabel: isFav ? 'Dans mes équipes' : 'Ajouter à mes équipes',
-      favStyle: isFav ? 'background: #0A0E1A; color: #FFC53D' : 'background: #FFC53D; color: #1A1300',
-      toggleFav: function () { var n = sel.id; var fv = st.favs.indexOf(n) >= 0 ? st.favs.filter(function (x) { return x !== n; }) : st.favs.concat(n); self.setState({ favs: fv }); },
-      spoilOn: sp ? 'true' : 'false', spoilStyle: sp ? 'background: #0A0E1A; color: #FFC53D' : 'background: #FFFFFF; color: #0E1424; border: 1px solid #D5DAE6',
-      toggleSpoil: function () { self.setState({ spoil: !st.spoil }); },
-      hasLive: !!featRaw, offline: sel.t === 'team' && !featRaw, f: f,
-      playing: st.playing, notPlaying: !st.playing,
-      play: function () { self.setState({ playing: true }); }, pause: function () { self.setState({ playing: false }); },
-      others: others, hasOthers: others.length > 0, noOthers: others.length === 0, othersCount: others.length + ' en live',
-      othersTitle: sel.t === 'all' ? 'Les autres lives' : (shown.length > 1 ? 'Ses autres lives' : 'En ce moment ailleurs'),
-      next: [
-        { h: 16, tz: 'Europe/Paris', a: 'Team BDS', b: 'Gentle Mates', game: 'Rocket League', event: 'RLCS' },
-        { h: 17, tz: 'Europe/Berlin', a: 'Fnatic', b: 'G2 Esports', game: 'League of Legends', event: 'LEC' },
-        { h: 19, tz: 'Europe/Budapest', a: 'MOUZ', b: 'Team Spirit', game: 'Counter-Strike 2', event: 'Major CS2' },
-        { h: 20, tz: 'Europe/Berlin', a: 'Karmine Corp', b: 'Heretics', game: 'Valorant', event: 'VCT EMEA' }
-      ].map(function (n) { var at = TIME.at(0, n.h); var z = TIME.zone(at, n.tz); return { time: TIME.hm(at, n.tz), zone: z, hasZone: !!z, a: n.a, b: n.b, game: n.game, event: n.event }; })
-    };
-  }
-}
-</script>
 
 
 <div id="preprodbar" style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#eee;font:12px/1.6 system-ui;padding:6px 10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-top:1px solid #333"><b style="color:#ff5c00">PRÉPROD maquette</b><a href="index.html" style="color:#9cf;text-decoration:none">Accueil</a><a href="tournois.html" style="color:#9cf;text-decoration:none">Tournois</a><a href="tournois-cs2.html" style="color:#9cf;text-decoration:none">Tournois CS2</a><a href="equipes.html" style="color:#9cf;text-decoration:none">Équipes</a><a href="equipe-vitality.html" style="color:#9cf;text-decoration:none">Fiche équipe</a><a href="news.html" style="color:#9cf;text-decoration:none">News</a><a href="news-article.html" style="color:#9cf;text-decoration:none">Article</a><span style="margin-left:auto;opacity:.6">non indexé · données fictives</span></div></body></html>
